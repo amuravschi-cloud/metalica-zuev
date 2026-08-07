@@ -1,6 +1,5 @@
 import React from 'react';
-import { Phone, MessageSquare, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { RebarSchematic } from './TechnicalSchematics';
+import { Phone, MessageSquare, ShieldCheck, CheckCircle2, Award, Building2, Truck } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -10,7 +9,7 @@ export default function Hero() {
           <div className="hero-grid">
             <div className="hero-content">
               <div className="hero-tag">
-                <ShieldCheck size={16} color="#4ADE80" /> Поставщик №1 металлопроката в Молдове с 1995 года
+                <ShieldCheck size={16} color="#4ADE80" /> Прямые поставки металлопроката по всей Молдове
               </div>
               
               <h1>
@@ -18,13 +17,13 @@ export default function Hero() {
               </h1>
 
               <p className="hero-lead">
-                Самый большой складской ассортимент в Молдове: 450+ позиций проката на 3-х действующих открытых металлобазах и логистическом хабе. 
-                Прямые заводские контракты, комплектация по ведомостям VOR, резка в размер и собственная доставка.
+                Самый большой складской ассортимент в Республике Молдова: 450+ позиций чёрного проката в наличии на 3-х действующих металлобазах и логистическом хабе. 
+                Прямые заводские поставки, резка в размер и отгрузка козловыми кранами под ваш график.
               </p>
 
               <div className="hero-actions">
                 <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '16px 32px', fontSize: '16px' }}>
-                  <Phone size={20} /> Позвонить в отдел продаж
+                  <Phone size={20} /> Позвонить отделу продаж
                 </a>
 
                 <a 
@@ -39,30 +38,48 @@ export default function Hero() {
               <div className="hero-stats-row">
                 <div className="stat-item">
                   <strong>30+ лет</strong>
-                  <span>надежной работы в Молдове</span>
+                  <span>лидерства в Молдове</span>
                 </div>
                 <div className="stat-item">
                   <strong>450+</strong>
-                  <span>позиций проката в наличии</span>
+                  <span>позиций в наличии</span>
                 </div>
                 <div className="stat-item">
                   <strong>3+1</strong>
-                  <span>металлобазы и лог-хаб</span>
+                  <span>базы и лог-хаб</span>
                 </div>
               </div>
             </div>
 
             <div className="hero-visual">
-              <div className="hero-schematic-card">
-                <div className="hero-schematic-header">
-                  <span>ИНЖЕНЕРНАЯ СПЕЦИФИКАЦИЯ</span>
-                  <span style={{ color: '#4ADE80' }}>ГОСТ 34028 / А500С</span>
+              <div className="hero-showcase-card">
+                <div className="hero-showcase-header">
+                  <h3>Metalica Zuev SRL</h3>
+                  <p>Официальный поставщик проката с 1995 года</p>
                 </div>
-                <div style={{ height: '320px', background: '#0F2C22' }}>
-                  <RebarSchematic />
+
+                <div className="hero-feature-list">
+                  <div className="hero-feature-item">
+                    <CheckCircle2 size={18} color="#4ADE80" /> Самый крупный складской запас в стране
+                  </div>
+                  <div className="hero-feature-item">
+                    <CheckCircle2 size={18} color="#4ADE80" /> 100% сертификация металлопроката ГОСТ / EN
+                  </div>
+                  <div className="hero-feature-item">
+                    <CheckCircle2 size={18} color="#4ADE80" /> Погрузка heavy-duty козловыми кранами
+                  </div>
+                  <div className="hero-feature-item">
+                    <CheckCircle2 size={18} color="#4ADE80" /> Высокоточная лентопильная & газовая резка
+                  </div>
                 </div>
-                <div style={{ padding: '18px 20px', background: 'rgba(0,0,0,0.4)', fontSize: '13px', color: '#D1E5DC', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <CheckCircle2 size={16} color="#4ADE80" /> Гарантия геометрии, допусков и марки стали
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+                  <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '10px', fontSize: '13px' }}>
+                    <Phone size={14} /> +373 68 47-15-30
+                  </a>
+                  <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ padding: '10px', fontSize: '13px' }}>
+                    <MessageSquare size={14} /> Viber ↗
+                  </a>
                 </div>
               </div>
             </div>
@@ -70,7 +87,7 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Dynamic Ticker */}
+      {/* Dynamic Animated Ticker */}
       <div className="ticker-strip" aria-label="Категории проката">
         <div className="ticker-track">
           <div className="ticker-item">АРМАТУРА А500С / А400 <span>◆</span></div>

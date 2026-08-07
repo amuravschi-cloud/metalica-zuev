@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Layers, FileText } from 'lucide-react';
-import { RebarSchematic, PipeSchematic, SheetSchematic, BeamSchematic } from './TechnicalSchematics';
+import { Phone, MessageSquare } from 'lucide-react';
 
 export default function ProductCatalog() {
   const [activeTab, setActiveTab] = useState('all');
-  const [viewMode, setViewMode] = useState('schematic');
 
   const products = [
     {
@@ -13,10 +11,8 @@ export default function ProductCatalog() {
       title: 'Арматура А500С / А400 (Ø 8 - 32 мм)',
       subtitle: 'Гладкая и периодического профиля для монолита',
       desc: 'Высокопрочная стальная арматура для монолитного строительства, фундаментов, ЖБИ изделий и несущих каркасов.',
-      schematic: <RebarSchematic />,
-      photo: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+      photo: '/images/rebar.png',
       tag: 'ГОСТ 34028 / А500С',
-      rustFree: true,
       specs: [
         { label: 'Марка стали', value: 'А500С / А400 / 35ГС' },
         { label: 'Диаметры', value: '8 мм, 10 мм, 12 мм, 14 мм, 16-32 мм' },
@@ -29,10 +25,8 @@ export default function ProductCatalog() {
       title: 'Круглая труба (ВГП / Электросварная)',
       subtitle: 'Водогазопроводные и магистральные трубы',
       desc: 'Стальные трубы различных диаметров и толщины стенки для инженерных сетей, металлоконструкций и гидросистем.',
-      schematic: <PipeSchematic />,
-      photo: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      photo: '/images/pipes.png',
       tag: 'ГОСТ и EN стандарты',
-      rustFree: true,
       specs: [
         { label: 'Диаметры', value: 'от 15 мм до 219+ мм' },
         { label: 'Толщина стенки', value: 'от 2.0 мм до 8.0 мм' },
@@ -45,10 +39,8 @@ export default function ProductCatalog() {
       title: 'Профильная труба (Квадратная / Прямоугольная)',
       subtitle: 'Для быстровозводимых зданий и каркасов',
       desc: 'Профильный прокат с точной геометрией сечения для навесов, заборов, ангаров и строительных лесов.',
-      schematic: <PipeSchematic />,
-      photo: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      photo: '/images/pipes.png',
       tag: 'Высокая прочность',
-      rustFree: true,
       specs: [
         { label: 'Сечения', value: '15х15 мм — 120х120 мм' },
         { label: 'Толщина', value: '1.5 мм — 6.0 мм' },
@@ -61,10 +53,8 @@ export default function ProductCatalog() {
       title: 'Листовой прокат (Г/К, Х/К, Оцинкованный)',
       subtitle: 'Листы и рулоны промышленного назначения',
       desc: 'Гладкий, оцинкованный и рифленый листовой металл для производства, штамповки и фасадных элементов.',
-      schematic: <SheetSchematic />,
-      photo: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      photo: '/images/sheets.png',
       tag: 'Точный раскрой',
-      rustFree: true,
       specs: [
         { label: 'Толщины', value: 'от 0.5 мм до 50 мм' },
         { label: 'Раскрой', value: '1000х2000, 1250х2500, 1500х6000' },
@@ -77,10 +67,8 @@ export default function ProductCatalog() {
       title: 'Двутавровая балка (10Б1 — 30Б1)',
       subtitle: 'Несущие двутавры для перекрытий и мостов',
       desc: 'Горячекатаный фасонный прокат Н-образного сечения для высоких нагрузок и межэтажных перекрытий.',
-      schematic: <BeamSchematic />,
-      photo: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+      photo: '/images/beams.png',
       tag: 'Максимальные нагрузки',
-      rustFree: true,
       specs: [
         { label: 'Профиль', value: 'Б1, Б2, К1, К2' },
         { label: 'Высота', value: 'от 100 мм до 300+ мм' },
@@ -93,10 +81,8 @@ export default function ProductCatalog() {
       title: 'Швеллер и Уголок стальной',
       subtitle: 'П-образный и равнополочный профиль',
       desc: 'Фасонные элементы для армирования стен, создания рамы техники и сопряжения балочных конструкций.',
-      schematic: <BeamSchematic />,
-      photo: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+      photo: '/images/beams.png',
       tag: 'ГОСТ сертификация',
-      rustFree: true,
       specs: [
         { label: 'Швеллер', value: '№ 5U, 8U, 10U, 12U, 14U — 30U' },
         { label: 'Уголок', value: '25х25 мм — 125х125 мм' },
@@ -114,49 +100,10 @@ export default function ProductCatalog() {
       <div className="container">
         <div className="section-header">
           <span className="section-tag">Складской ассортимент</span>
-          <h2>Каталог продуктовых групп проката</h2>
+          <h2>Каталог продуктовых групп металлопроката</h2>
           <p>
-            450+ товарных позиций в наличии на базах. Каждая партия сопровождается заводскими сертификатами.
+            450+ товарных позиций в наличии на 3-х базах и логистическом хабе в Молдове.
           </p>
-
-          <div style={{ display: 'inline-flex', background: '#E8F0EC', padding: '4px', borderRadius: 'var(--radius-full)', marginTop: '20px' }}>
-            <button 
-              onClick={() => setViewMode('schematic')}
-              style={{
-                padding: '8px 20px',
-                borderRadius: 'var(--radius-full)',
-                border: 'none',
-                background: viewMode === 'schematic' ? '#134E3C' : 'transparent',
-                color: viewMode === 'schematic' ? '#FFFFFF' : '#4B6358',
-                fontSize: '13px',
-                fontWeight: '700',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}
-            >
-              <FileText size={14} /> CAD-чертежи
-            </button>
-            <button 
-              onClick={() => setViewMode('photo')}
-              style={{
-                padding: '8px 20px',
-                borderRadius: 'var(--radius-full)',
-                border: 'none',
-                background: viewMode === 'photo' ? '#134E3C' : 'transparent',
-                color: viewMode === 'photo' ? '#FFFFFF' : '#4B6358',
-                fontSize: '13px',
-                fontWeight: '700',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}
-            >
-              <Layers size={14} /> Фото производства
-            </button>
-          </div>
         </div>
 
         {/* Filter Tabs */}
@@ -173,7 +120,7 @@ export default function ProductCatalog() {
           {filteredProducts.map((prod) => (
             <div key={prod.id} className="product-card">
               <div className="product-img-wrapper">
-                {viewMode === 'schematic' ? prod.schematic : <img src={prod.photo} alt={prod.title} loading="lazy" />}
+                <img src={prod.photo} alt={prod.title} loading="lazy" />
                 <span className="product-tag">{prod.tag}</span>
               </div>
 
@@ -191,10 +138,10 @@ export default function ProductCatalog() {
                 </div>
 
                 <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid var(--border-green)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                  <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '8px 10px', fontSize: '12px' }}>
+                  <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '9px 10px', fontSize: '12px' }}>
                     <Phone size={14} /> Позвонить
                   </a>
-                  <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ padding: '8px 10px', fontSize: '12px' }}>
+                  <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ padding: '9px 10px', fontSize: '12px' }}>
                     <MessageSquare size={14} /> Viber
                   </a>
                 </div>
