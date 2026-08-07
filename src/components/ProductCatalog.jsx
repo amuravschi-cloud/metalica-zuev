@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Shield, Layers, FileText } from 'lucide-react';
+import { Phone, MessageSquare, Layers, FileText } from 'lucide-react';
 import { RebarSchematic, PipeSchematic, SheetSchematic, BeamSchematic } from './TechnicalSchematics';
 
 export default function ProductCatalog() {
@@ -119,7 +119,6 @@ export default function ProductCatalog() {
             450+ товарных позиций в наличии на базах. Каждая партия сопровождается заводскими сертификатами.
           </p>
 
-          {/* Toggle schematic or photos */}
           <div style={{ display: 'inline-flex', background: '#E8F0EC', padding: '4px', borderRadius: 'var(--radius-full)', marginTop: '20px' }}>
             <button 
               onClick={() => setViewMode('schematic')}
@@ -195,8 +194,8 @@ export default function ProductCatalog() {
                   <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '8px 10px', fontSize: '12px' }}>
                     <Phone size={14} /> Позвонить
                   </a>
-                  <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp" style={{ padding: '8px 10px', fontSize: '12px' }}>
-                    <MessageSquare size={14} /> WhatsApp
+                  <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ padding: '8px 10px', fontSize: '12px' }}>
+                    <MessageSquare size={14} /> Viber
                   </a>
                 </div>
               </div>

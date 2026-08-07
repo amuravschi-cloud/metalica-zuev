@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageSquare, Clock, MapPin, Mail } from 'lucide-react';
+import { Phone, MessageSquare, Clock, Mail } from 'lucide-react';
 
 export default function DirectContactSection() {
   return (
@@ -17,13 +17,11 @@ export default function DirectContactSection() {
             </a>
 
             <a 
-              href="https://wa.me/37368471530" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="btn btn-whatsapp" 
+              href="viber://chat?number=%2B37368471530" 
+              className="btn btn-viber" 
               style={{ padding: '18px 36px', fontSize: '17px' }}
             >
-              <MessageSquare size={22} /> Написать в WhatsApp ↗
+              <MessageSquare size={22} /> Написать в Viber ↗
             </a>
           </div>
 

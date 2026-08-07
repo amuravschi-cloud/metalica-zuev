@@ -225,14 +225,14 @@ h1, h2, h3, .heading-font {
   box-shadow: 0 6px 20px rgba(14, 56, 43, 0.35);
 }
 
-.btn-whatsapp {
-  background: #16A34A;
+.btn-viber {
+  background: #7360F2;
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+  box-shadow: 0 4px 14px rgba(115, 96, 242, 0.28);
 }
 
-.btn-whatsapp:hover {
-  background: #15803D;
+.btn-viber:hover {
+  background: #5F4CE0;
   transform: translateY(-1px);
 }
 
@@ -812,8 +812,8 @@ h1, h2, h3, .heading-font {
   transform: scale(1.08);
 }
 
-.floating-btn-wa {
-  background: #16A34A;
+.floating-btn-viber {
+  background: #7360F2;
 }
 
 .floating-btn-phone {

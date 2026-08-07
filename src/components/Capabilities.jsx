@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scissors, Truck, Layers, Wrench, ShieldCheck, CheckCircle2, Phone, MessageSquare } from 'lucide-react';
+import { Scissors, Truck, Layers, Wrench, CheckCircle2, Phone, MessageSquare } from 'lucide-react';
 
 export default function Capabilities() {
   const capabilitiesList = [
@@ -79,8 +79,8 @@ export default function Capabilities() {
               <a href="tel:+37368471530" className="btn btn-brand" style={{ width: '100%' }}>
                 <Phone size={16} /> Позвонить: +373 68 47-15-30
               </a>
-              <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp" style={{ width: '100%' }}>
-                <MessageSquare size={16} /> Написать в WhatsApp ↗
+              <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ width: '100%' }}>
+                <MessageSquare size={16} /> Написать в Viber ↗
               </a>
             </div>
           </div>

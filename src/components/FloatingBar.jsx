@@ -5,11 +5,9 @@ export default function FloatingBar() {
   return (
     <div className="floating-actions">
       <a 
-        href="https://wa.me/37368471530" 
-        target="_blank" 
-        rel="noreferrer"
-        className="floating-btn floating-btn-wa"
-        title="Написать в WhatsApp (+373 68 47-15-30)"
+        href="viber://chat?number=%2B37368471530" 
+        className="floating-btn floating-btn-viber"
+        title="Написать в Viber (+373 68 47-15-30)"
       >
         <MessageSquare size={24} />
       </a>

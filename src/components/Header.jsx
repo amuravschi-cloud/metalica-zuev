@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageSquare, Clock, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, MessageSquare, Clock, MapPin } from 'lucide-react';
 
 export default function Header() {
   const now = new Date();
@@ -36,12 +36,10 @@ export default function Header() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <a 
-              href="https://wa.me/37368471530" 
-              target="_blank" 
-              rel="noreferrer"
-              style={{ color: '#4ADE80', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: '700' }}
+              href="viber://chat?number=%2B37368471530" 
+              style={{ color: '#C4B5FD', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: '700' }}
             >
-              <MessageSquare size={14} /> WhatsApp: +373 68 47-15-30
+              <MessageSquare size={14} /> Viber: +373 68 47-15-30
             </a>
           </div>
         </div>
@@ -71,8 +69,8 @@ export default function Header() {
               <Phone size={15} /> +373 68 47-15-30
             </a>
             
-            <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp" style={{ padding: '10px 16px', fontSize: '13px' }}>
-              <MessageSquare size={15} /> Написать
+            <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ padding: '10px 16px', fontSize: '13px' }}>
+              <MessageSquare size={15} /> Viber
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageSquare, ShieldCheck, Award, Building2, CheckCircle2 } from 'lucide-react';
+import { Phone, MessageSquare, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { RebarSchematic } from './TechnicalSchematics';
 
 export default function Hero() {
@@ -28,13 +28,11 @@ export default function Hero() {
                 </a>
 
                 <a 
-                  href="https://wa.me/37368471530" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="btn btn-whatsapp" 
+                  href="viber://chat?number=%2B37368471530" 
+                  className="btn btn-viber" 
                   style={{ padding: '16px 28px', fontSize: '16px' }}
                 >
-                  <MessageSquare size={20} /> Написать в WhatsApp ↗
+                  <MessageSquare size={20} /> Написать в Viber ↗
                 </a>
               </div>
 
@@ -72,7 +70,7 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Dynamic Animated Ticker */}
+      {/* Dynamic Ticker */}
       <div className="ticker-strip" aria-label="Категории проката">
         <div className="ticker-track">
           <div className="ticker-item">АРМАТУРА А500С / А400 <span>◆</span></div>

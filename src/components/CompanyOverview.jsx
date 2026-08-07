@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, Award, ShieldCheck, Truck, Phone, MessageSquare } from 'lucide-react';
+import { Award, ShieldCheck, Truck, Phone, MessageSquare } from 'lucide-react';
 
 export default function CompanyOverview() {
   return (
@@ -21,8 +21,8 @@ export default function CompanyOverview() {
               <a href="tel:+37368471530" className="btn btn-brand">
                 <Phone size={16} /> Связаться с отделом продаж
               </a>
-              <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp">
-                <MessageSquare size={16} /> Написать в WhatsApp ↗
+              <a href="viber://chat?number=%2B37368471530" className="btn btn-viber">
+                <MessageSquare size={16} /> Написать в Viber ↗
               </a>
             </div>
           </div>
