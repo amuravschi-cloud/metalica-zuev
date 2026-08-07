@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Clock, CheckCircle, Navigation, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, Clock, CheckCircle, Navigation } from 'lucide-react';
 
 export default function BasesMap() {
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(0);
@@ -7,47 +7,48 @@ export default function BasesMap() {
   const bases = [
     {
       id: 'base1',
-      title: 'Центральная Металлобаза №1 (Кишинёв)',
+      title: 'Металлобаза №1 (Кишинёв)',
       city: 'Chișinău',
       address: 'str. Industrială, 48',
-      type: 'Открытая база + Склад арматуры',
+      type: 'Открытая металлобаза · Склад металла',
       hours: 'Пн–Пт: 08:00 – 17:00',
-      mapUrl: 'https://maps.google.com/?q=Industriala%2048%20Chisinau%20Moldova',
-      features: ['2 Козловых крана 15т', 'Склад гладкой & профильной арматуры', 'Гильотинная резка листов', 'Автомобильные весы 60т'],
-      desc: 'Главный открытый складской комплекс компании с круглосуточным пополнением запасов от заводов-изготовителей.'
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Industrial%C4%83+48+Chisinau',
+      features: ['Козловые краны 15т', 'Склад сортового и фасонного проката', 'Гильотинная и лентопильная резка', 'Точный весовой контроль'],
+      desc: 'Открытый складской комплекс компании с широким ассортиментом чёрного металлопроката и быстрой крановой отгрузкой.'
     },
     {
       id: 'base2',
       title: 'Металлобаза №2 (Кишинёв)',
       city: 'Chișinău',
-      address: 'str. Vadul lui Vodă, 142',
-      type: 'Склад труб и профилей',
+      address: 'str. Transnistria, 3 (заезд с str. Vadul lui Vodă, 142)',
+      type: 'Открытая металлобаза · Склад металла',
       hours: 'Пн–Пт: 08:00 – 17:00',
-      mapUrl: 'https://maps.google.com/?q=Vadul%20lui%20Voda%20142%20Chisinau%20Moldova',
-      features: ['Цех профильных труб', 'Лентопильная резка', 'Крытый ангар хранения', 'Удобный подъезд длинномеров'],
-      desc: 'Специализированная база по сортовому и профильному прокату, круглой и квадратной трубе.'
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Transnistria+3+Chisinau',
+      features: ['Открытый склад металлопроката', 'Лентопильная резка', 'Удобный подъезд длинномеров', 'Погрузка крановым оборудованием'],
+      desc: 'Открытая металлобаза с удобным заездом с улицы Вадул-луй-Водэ (142), оборудованная под отгрузку тяжелых длинномеров.'
     },
     {
       id: 'base3',
       title: 'Региональная Металлобаза №3 (Орхей)',
       city: 'Orhei',
       address: 'str. Unirii, 49D',
-      type: 'Региональный хаб Севера',
-      hours: 'Пн–Пт: 08:00 – 17:00',
-      mapUrl: 'https://maps.google.com/?q=Unirii%2049D%20Orhei%20Moldova',
-      features: ['Быстрая отгрузка на Север', 'Крановая погрузка', 'Основной ассортимент проката', 'Прямой выезд на трассу'],
-      desc: 'Обеспечивает поставками строительные объекты Оргеева, Бельц и северных районов Молдовы.'
+      type: 'Региональная металлобаза',
+      hours: 'Пн–Пт: 08:00 – 17:00 | Сб: 08:00 – 14:00',
+      isSaturdayOpen: true,
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Orhei',
+      features: ['Отгрузка по субботам до 14:00', 'Быстрая доставка по Северу', 'Крановая погрузка', 'Прямой выезд на трассу'],
+      desc: 'Обеспечивает поставками строительные объекты Оргеева, Бельц и северных районов Молдовы. Работает по субботам до 14:00.'
     },
     {
       id: 'base4',
-      title: 'Логистический Узловой Хаб (Сынжера)',
+      title: 'Логистический Хаб (Сынжера)',
       city: 'Sîngera',
       address: 'str. Industrială, 3',
-      type: 'Главный логистический хаб',
+      type: 'Логистический хаб',
       hours: 'Пн–Пт: 08:00 – 17:00',
-      mapUrl: 'https://maps.google.com/?q=Industriala%203%20Singera%20Moldova',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Singera',
       features: ['Площадка тяжелого фасона', 'Склады балок и швеллеров', 'Парк длинномерных фур', 'Спецкомплектация проектов'],
-      desc: 'Логистический центр распределения вагонных поставок и тяжелого фасонного проката.'
+      desc: 'Узловой логистический центр распределения прямых заводских поставок и тяжелого фасонного проката.'
     }
   ];
 
@@ -76,25 +77,39 @@ export default function BasesMap() {
                   <span>{b.city}</span>
                   <span style={{ fontSize: '12px', color: 'var(--brand-green)', fontWeight: '700' }}>0{idx + 1}</span>
                 </h4>
-                <p style={{ fontWeight: '600', color: 'var(--text-dark)', margin: '2px 0' }}>{b.address}</p>
-                <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{b.type}</p>
+                <p style={{ fontWeight: '700', color: 'var(--text-dark)', margin: '4px 0 2px 0', lineHeight: '1.3' }}>{b.address}</p>
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginTop: '4px' }}>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{b.type}</span>
+                  {b.isSaturdayOpen && (
+                    <span style={{ background: '#FEF3C7', color: '#B45309', padding: '2px 8px', borderRadius: 'var(--radius-sm)', fontSize: '11px', fontWeight: '800' }}>
+                      Сб до 14:00
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
 
           <div className="base-detail-card">
             <div className="base-detail-info">
-              <div style={{ display: 'inline-block', background: 'var(--brand-green-light)', color: 'var(--brand-green)', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '700', marginBottom: '12px' }}>
-                {currentBase.type}
+              <div style={{ display: 'inline-flex', gap: '8px', alignItems: 'center', marginBottom: '12px' }}>
+                <span style={{ background: 'var(--brand-green-light)', color: 'var(--brand-green)', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '700' }}>
+                  {currentBase.type}
+                </span>
+                {currentBase.isSaturdayOpen && (
+                  <span style={{ background: '#FEF3C7', color: '#B45309', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '800' }}>
+                    Работает в субботу до 14:00
+                  </span>
+                )}
               </div>
 
               <h3>{currentBase.title}</h3>
               
               <div style={{ display: 'flex', gap: '20px', margin: '16px 0', fontSize: '14px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
                   <MapPin size={16} color="var(--brand-green)" /> {currentBase.address}
                 </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
                   <Clock size={16} color="var(--brand-green)" /> {currentBase.hours}
                 </span>
               </div>
@@ -122,7 +137,7 @@ export default function BasesMap() {
                 className="btn btn-brand"
                 style={{ flex: 1 }}
               >
-                <Navigation size={16} /> Построить маршрут на Google Maps ↗
+                <Navigation size={16} /> Найти на Google Maps (Метка MZ) ↗
               </a>
 
               <a 

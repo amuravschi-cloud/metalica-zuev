@@ -16,7 +16,7 @@ export default function Capabilities() {
     {
       icon: <Wrench size={26} />,
       title: 'Козловые краны и погрузка',
-      desc: 'Все 3 металлобазы оборудованы heavy-duty козловыми и мостовыми кранами для безопасной и оперативной отгрузки длинномеров.'
+      desc: 'Все металлобазы оборудованы heavy-duty козловыми и мостовыми кранами для безопасной и оперативной отгрузки длинномеров.'
     },
     {
       icon: <Truck size={26} />,
@@ -54,15 +54,18 @@ export default function Capabilities() {
             <h3 style={{ fontSize: '26px', fontWeight: '800', margin: '8px 0 14px 0', color: 'var(--bg-dark-green)' }}>
               Почему крупные застройщики Молдовы выбирают Metalica Zuev?
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} color="#16A34A" /> 100% сертификация металлопроката заводскими паспортами
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} color="#16A34A" style={{ flexShrink: 0, marginTop: '2px' }} /> 
+                <span>100% сертификация металлопроката заводскими паспортами</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} color="#16A34A" /> Хранение арматуры и листов без контакта с влажной землей
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} color="#16A34A" style={{ flexShrink: 0, marginTop: '2px' }} /> 
+                <span>Открытое складское хранение проката на специализированных стеллажах и подкладках</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
-                <CheckCircle2 size={18} color="#16A34A" /> Точное весовое взвешивание при выезде через автомобильные весы
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
+                <CheckCircle2 size={18} color="#16A34A" style={{ flexShrink: 0, marginTop: '2px' }} /> 
+                <span>Точный весовой контроль партии непосредственно при погрузке и разгрузке</span>
               </div>
             </div>
           </div>
