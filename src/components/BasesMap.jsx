@@ -20,10 +20,10 @@ export default function BasesMap() {
       id: 'base2',
       title: 'Металлобаза №2 (Кишинёв)',
       city: 'Chișinău',
-      address: 'str. Transnistria, 3 (заезд с str. Vadul lui Vodă, 142)',
+      address: 'str. Transnistria, 3A (заезд с str. Vadul lui Vodă, 142)',
       type: 'Открытая металлобаза · Склад металла',
       hours: 'Пн–Пт: 08:00 – 17:00',
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Transnistria+3+Chisinau',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Transnistria+3A+Chisinau',
       features: ['Открытый склад металлопроката', 'Лентопильная резка', 'Удобный подъезд длинномеров', 'Погрузка крановым оборудованием'],
       desc: 'Открытая металлобаза с удобным заездом с улицы Вадул-луй-Водэ (142), оборудованная под отгрузку тяжелых длинномеров.'
     },
