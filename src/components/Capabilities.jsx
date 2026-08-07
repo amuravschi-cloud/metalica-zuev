@@ -1,7 +1,7 @@
 import React from 'react';
-import { Scissors, Truck, Layers, Wrench, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Scissors, Truck, Layers, Wrench, ShieldCheck, CheckCircle2, Phone, MessageSquare } from 'lucide-react';
 
-export default function Capabilities({ onOpenModal }) {
+export default function Capabilities() {
   const capabilitiesList = [
     {
       icon: <Scissors size={26} />,
@@ -32,7 +32,7 @@ export default function Capabilities({ onOpenModal }) {
           <span className="section-tag">Сервис & Логистика</span>
           <h2>Не просто отгружаем. Готовим металл к работе.</h2>
           <p>
-            Закрепляем персонального менеджера за каждой заявкой — от проверки ведомости до приемки товара на объекте.
+            Обеспечиваем полный цикл складской подготовки: от резки в размер до быстрой отгрузки козловыми кранами.
           </p>
         </div>
 
@@ -46,15 +46,15 @@ export default function Capabilities({ onOpenModal }) {
           ))}
         </div>
 
-        <div style={{ marginTop: '50px', background: '#F8FAFC', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-lg)', padding: '36px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'center' }}>
+        <div style={{ marginTop: '50px', background: '#F4F7F5', border: '1px solid var(--border-green)', borderRadius: 'var(--radius-lg)', padding: '36px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'center' }}>
           <div>
-            <span style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--brand-navy)', letterSpacing: '0.05em' }}>
+            <span style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--brand-green)', letterSpacing: '0.05em' }}>
               Гарантия надежности
             </span>
-            <h3 style={{ fontSize: '26px', fontWeight: '800', margin: '8px 0 14px 0', color: 'var(--text-dark)' }}>
-              Почему крупные застройщики выбирают Metalica Zuev?
+            <h3 style={{ fontSize: '26px', fontWeight: '800', margin: '8px 0 14px 0', color: 'var(--bg-dark-green)' }}>
+              Почему крупные застройщики Молдовы выбирают Metalica Zuev?
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)' }}>
                 <CheckCircle2 size={18} color="#16A34A" /> 100% сертификация металлопроката заводскими паспортами
               </div>
@@ -67,20 +67,22 @@ export default function Capabilities({ onOpenModal }) {
             </div>
           </div>
 
-          <div style={{ background: '#FFFFFF', padding: '24px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
-            <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--brand-navy)', marginBottom: '8px' }}>
-              Обсудить комплексную поставку
+          <div style={{ background: '#FFFFFF', padding: '28px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-green)', boxShadow: 'var(--shadow-sm)' }}>
+            <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--bg-dark-green)', marginBottom: '8px' }}>
+              Обсудить поставку с отделом продаж
             </h4>
             <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '20px' }}>
-              Загрузите вашу ведомость или спецификацию в удобном формате. Менеджер выйдет на связь за 7 минут.
+              Менеджер проконсультирует по ассортименту, проверит наличие и организует отгрузку.
             </p>
-            <button 
-              className="btn btn-navy"
-              style={{ width: '100%' }}
-              onClick={() => onOpenModal('Комплексная поставка по ведомости')}
-            >
-              Связаться с дежурным менеджером
-            </button>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <a href="tel:+37368471530" className="btn btn-brand" style={{ width: '100%' }}>
+                <Phone size={16} /> Позвонить: +373 68 47-15-30
+              </a>
+              <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp" style={{ width: '100%' }}>
+                <MessageSquare size={16} /> Написать в WhatsApp ↗
+              </a>
+            </div>
           </div>
         </div>
       </div>

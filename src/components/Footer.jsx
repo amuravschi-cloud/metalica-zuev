@@ -1,15 +1,15 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp, Clock, MessageSquare } from 'lucide-react';
 
-export default function Footer({ onOpenModal }) {
+export default function Footer() {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
             <b>METALICA ZUEV</b>
             <p>
-              Один из лидеров на рынке металлопроката в Республике Молдова с 1995 года. Прямые поставки от ведущих заводов, 3 открытые металлобазы и узловой логистический хаб.
+              Один из крупнейших поставщиков чёрного металлопроката в Республике Молдова с 1995 года. Прямые заводские контракты, 3 открытые металлобазы и узловой логистический хаб.
             </p>
             <div style={{ marginTop: '20px', fontSize: '13px', color: '#64748B' }}>
               © 1995–2026 Metalica Zuev SRL. Все права защищены.
@@ -17,14 +17,13 @@ export default function Footer({ onOpenModal }) {
           </div>
 
           <div className="footer-col">
-            <h4>Продукция & Услуги</h4>
+            <h4>Разделы и информация</h4>
             <ul>
-              <li><a href="#catalog">Арматура А500С / А400</a></li>
-              <li><a href="#catalog">Круглые и профильные трубы</a></li>
-              <li><a href="#catalog">Листовой прокат Г/К, Х/К, Оцинк</a></li>
-              <li><a href="#catalog">Двутавровая балка и швеллер</a></li>
-              <li><a href="#capabilities">Высокоточная резка в размер</a></li>
-              <li><a href="#capabilities">Комплектация ведомостей VOR</a></li>
+              <li><a href="#company">О компании</a></li>
+              <li><a href="#catalog">Ассортимент металлопроката</a></li>
+              <li><a href="#capabilities">Оснащение & Сервис</a></li>
+              <li><a href="#bases">Локации металлобаз</a></li>
+              <li><a href="#contact">Контакты отделов</a></li>
             </ul>
           </div>
 
@@ -32,30 +31,32 @@ export default function Footer({ onOpenModal }) {
             <h4>Отдел продаж и контакты</h4>
             <ul>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={16} color="#38BDF8" /> <strong>+373 22 47-15-30</strong>
+                <Phone size={16} color="#4ADE80" /> <strong>+373 68 47-15-30</strong> (Мобильный / WhatsApp)
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Mail size={16} color="#38BDF8" /> info@mz.md
+                <Phone size={16} color="#4ADE80" /> +373 22 47-15-30 (Городской)
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <MapPin size={16} color="#38BDF8" /> г. Кишинёв, ул. Индустриальная, 48
+                <Clock size={16} color="#4ADE80" /> Пн–Пт · 08:00 – 17:00
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Mail size={16} color="#4ADE80" /> info@mz.md
               </li>
             </ul>
-            <div style={{ marginTop: '20px' }}>
-              <button 
-                className="btn btn-navy"
-                style={{ width: '100%', fontSize: '13px' }}
-                onClick={() => onOpenModal('Вызов менеджера из футера')}
-              >
-                Связаться с дежурным менеджером
-              </button>
+            <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+              <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '8px 14px', fontSize: '12px' }}>
+                <Phone size={14} /> Позвонить
+              </a>
+              <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp" style={{ padding: '8px 14px', fontSize: '12px' }}>
+                <MessageSquare size={14} /> WhatsApp
+              </a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <span>Официальный сайт поставщика металлопроката Metalica Zuev SRL в Молдове</span>
-          <a href="#top" style={{ color: '#E2E8F0', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+          <span>Официальный информационный сайт поставщика металлопроката Metalica Zuev SRL в Молдове</span>
+          <a href="#top" style={{ color: '#D1E5DC', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
             Наверх страницы <ArrowUp size={14} />
           </a>
         </div>

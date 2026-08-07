@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, ExternalLink, Clock, CheckCircle, Navigation } from 'lucide-react';
+import { MapPin, Phone, Clock, CheckCircle, Navigation, MessageSquare } from 'lucide-react';
 
-export default function BasesMap({ onOpenModal }) {
+export default function BasesMap() {
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(0);
 
   const bases = [
@@ -54,7 +54,7 @@ export default function BasesMap({ onOpenModal }) {
   const currentBase = bases[selectedBaseIndex];
 
   return (
-    <section className="section" id="bases" style={{ background: '#F8FAFC' }}>
+    <section className="section" id="bases" style={{ background: '#F4F7F5' }}>
       <div className="container">
         <div className="section-header">
           <span className="section-tag">Складская сеть</span>
@@ -74,7 +74,7 @@ export default function BasesMap({ onOpenModal }) {
               >
                 <h4>
                   <span>{b.city}</span>
-                  <span style={{ fontSize: '12px', color: 'var(--brand-navy)', fontWeight: '700' }}>0{idx + 1}</span>
+                  <span style={{ fontSize: '12px', color: 'var(--brand-green)', fontWeight: '700' }}>0{idx + 1}</span>
                 </h4>
                 <p style={{ fontWeight: '600', color: 'var(--text-dark)', margin: '2px 0' }}>{b.address}</p>
                 <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{b.type}</p>
@@ -84,24 +84,24 @@ export default function BasesMap({ onOpenModal }) {
 
           <div className="base-detail-card">
             <div className="base-detail-info">
-              <div style={{ display: 'inline-block', background: '#EFF6FF', color: 'var(--brand-navy)', padding: '4px 10px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '700', marginBottom: '12px' }}>
+              <div style={{ display: 'inline-block', background: 'var(--brand-green-light)', color: 'var(--brand-green)', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '700', marginBottom: '12px' }}>
                 {currentBase.type}
               </div>
 
               <h3>{currentBase.title}</h3>
               
-              <div style={{ display: 'flex', gap: '20px', margin: '16px 0', fontSize: '14px', color: 'var(--text-muted)' }}>
+              <div style={{ display: 'flex', gap: '20px', margin: '16px 0', fontSize: '14px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <MapPin size={16} color="var(--brand-navy)" /> {currentBase.address}
+                  <MapPin size={16} color="var(--brand-green)" /> {currentBase.address}
                 </span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Clock size={16} color="var(--brand-navy)" /> {currentBase.hours}
+                  <Clock size={16} color="var(--brand-green)" /> {currentBase.hours}
                 </span>
               </div>
 
               <p>{currentBase.desc}</p>
 
-              <h4 style={{ fontSize: '14px', fontWeight: '800', margin: '20px 0 12px 0', color: 'var(--text-dark)' }}>
+              <h4 style={{ fontSize: '14px', fontWeight: '800', margin: '20px 0 12px 0', color: 'var(--bg-dark-green)' }}>
                 Оснащение и сервисы базы:
               </h4>
 
@@ -114,23 +114,23 @@ export default function BasesMap({ onOpenModal }) {
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', paddingTop: '20px', borderTop: '1px solid var(--border-light)' }}>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', paddingTop: '20px', borderTop: '1px solid var(--border-green)' }}>
               <a 
                 href={currentBase.mapUrl} 
                 target="_blank" 
                 rel="noreferrer"
-                className="btn btn-navy"
+                className="btn btn-brand"
                 style={{ flex: 1 }}
               >
                 <Navigation size={16} /> Построить маршрут на Google Maps ↗
               </a>
 
-              <button 
-                className="btn btn-outline"
-                onClick={() => onOpenModal(`Самовывоз с базы: ${currentBase.city}, ${currentBase.address}`)}
+              <a 
+                href="tel:+37368471530" 
+                className="btn btn-outline-dark"
               >
-                Забронировать самовывоз
-              </button>
+                <Phone size={16} /> Уточнить проезд
+              </a>
             </div>
           </div>
         </div>

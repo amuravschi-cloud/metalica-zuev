@@ -1,45 +1,47 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Truck, Calculator, Award, CheckCircle } from 'lucide-react';
+import { Phone, MessageSquare, ShieldCheck, Award, Building2, CheckCircle2 } from 'lucide-react';
 import { RebarSchematic } from './TechnicalSchematics';
 
-export default function Hero({ onOpenModal }) {
+export default function Hero() {
   return (
     <>
-      <section className="hero" id="top">
+      <section className="hero-metallic" id="top">
         <div className="container">
           <div className="hero-grid">
-            <div className="hero-content fade-in">
-              <div className="hero-badge-tag">
-                <ShieldCheck size={16} /> 30+ лет прямого импорта и поставок по Молдове
+            <div className="hero-content">
+              <div className="hero-tag">
+                <ShieldCheck size={16} color="#4ADE80" /> Поставщик №1 металлопроката в Молдове с 1995 года
               </div>
               
               <h1>
-                Металлопрокат для <em>масштабных</em> строительных проектов.
+                Металл для <em>масштабных</em> проектов любой сложности.
               </h1>
 
               <p className="hero-lead">
-                450+ складских позиций проката в наличии на 3-х открытых базах и логистическом хабе. 
-                Комплектация сложных ведомостей, точность нарезки в размер и крановая отгрузка под ваш график.
+                Самый большой складской ассортимент в Молдове: 450+ позиций проката на 3-х действующих открытых металлобазах и логистическом хабе. 
+                Прямые заводские контракты, комплектация по ведомостям VOR, резка в размер и собственная доставка.
               </p>
 
               <div className="hero-actions">
-                <a href="#calculator" className="btn btn-navy" style={{ padding: '14px 28px', fontSize: '15px' }}>
-                  <Calculator size={18} /> Расчитать спецификацию online <ArrowRight size={18} />
+                <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '16px 32px', fontSize: '16px' }}>
+                  <Phone size={20} /> Позвонить в отдел продаж
                 </a>
 
-                <button 
-                  className="btn btn-outline" 
-                  style={{ padding: '14px 24px', fontSize: '15px' }}
-                  onClick={() => onOpenModal('Запрос наличия у менеджера')}
+                <a 
+                  href="https://wa.me/37368471530" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn btn-whatsapp" 
+                  style={{ padding: '16px 28px', fontSize: '16px' }}
                 >
-                  Уточнить наличие на складе
-                </button>
+                  <MessageSquare size={20} /> Написать в WhatsApp ↗
+                </a>
               </div>
 
               <div className="hero-stats-row">
                 <div className="stat-item">
-                  <strong>30+</strong>
-                  <span>лет лидерства в Молдове</span>
+                  <strong>30+ лет</strong>
+                  <span>надежной работы в Молдове</span>
                 </div>
                 <div className="stat-item">
                   <strong>450+</strong>
@@ -52,26 +54,17 @@ export default function Hero({ onOpenModal }) {
               </div>
             </div>
 
-            <div className="hero-visual fade-in" style={{ animationDelay: '0.15s' }}>
-              <div className="hero-visual-card">
-                <div style={{ height: '340px' }}>
+            <div className="hero-visual">
+              <div className="hero-schematic-card">
+                <div className="hero-schematic-header">
+                  <span>ИНЖЕНЕРНАЯ СПЕЦИФИКАЦИЯ</span>
+                  <span style={{ color: '#4ADE80' }}>ГОСТ 34028 / А500С</span>
+                </div>
+                <div style={{ height: '320px', background: '#0F2C22' }}>
                   <RebarSchematic />
                 </div>
-                
-                <div className="hero-visual-badge">
-                  <div className="hero-visual-badge-info">
-                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <CheckCircle size={16} color="#4ADE80" /> Стандарты ГОСТ 34028 / А500С
-                    </h4>
-                    <p>Точность допусков, сертификаты заводов, прямые поставки</p>
-                  </div>
-                  <button 
-                    className="btn btn-gold"
-                    style={{ padding: '8px 14px', fontSize: '12px' }}
-                    onClick={() => onOpenModal('Заказ арматуры А500С')}
-                  >
-                    Запросить расчёт
-                  </button>
+                <div style={{ padding: '18px 20px', background: 'rgba(0,0,0,0.4)', fontSize: '13px', color: '#D1E5DC', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <CheckCircle2 size={16} color="#4ADE80" /> Гарантия геометрии, допусков и марки стали
                 </div>
               </div>
             </div>
@@ -85,15 +78,15 @@ export default function Hero({ onOpenModal }) {
           <div className="ticker-item">АРМАТУРА А500С / А400 <span>◆</span></div>
           <div className="ticker-item">ТРУБА ПРОФИЛЬНАЯ И КРУГЛАЯ <span>◆</span></div>
           <div className="ticker-item">ЛИСТОВОЙ ПРОКАТ Г/К И Х/К <span>◆</span></div>
-          <div className="ticker-item">БВАУТАВРОВАЯ БАЛКА <span>◆</span></div>
+          <div className="ticker-item">ДВУТАВРОВАЯ БАЛКА <span>◆</span></div>
           <div className="ticker-item">ШВЕЛЛЕР И УГОЛОК <span>◆</span></div>
           <div className="ticker-item">СЕТКА СВАРНАЯ И КАТАНКА <span>◆</span></div>
           <div className="ticker-item">РЕЗКА В РАЗМЕР И КРАНЫ <span>◆</span></div>
-          {/* Repeat loop for smooth continuous animation */}
+          {/* Loop */}
           <div className="ticker-item">АРМАТУРА А500С / А400 <span>◆</span></div>
           <div className="ticker-item">ТРУБА ПРОФИЛЬНАЯ И КРУГЛАЯ <span>◆</span></div>
           <div className="ticker-item">ЛИСТОВОЙ ПРОКАТ Г/К И Х/К <span>◆</span></div>
-          <div className="ticker-item">БВАУТАВРОВАЯ БАЛКА <span>◆</span></div>
+          <div className="ticker-item">ДВУТАВРОВАЯ БАЛКА <span>◆</span></div>
           <div className="ticker-item">ШВЕЛЛЕР И УГОЛОК <span>◆</span></div>
           <div className="ticker-item">СЕТКА СВАРНАЯ И КАТАНКА <span>◆</span></div>
         </div>

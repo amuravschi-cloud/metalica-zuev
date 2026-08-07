@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { ArrowRight, FileSpreadsheet, Shield, Layers, FileText } from 'lucide-react';
+import { Phone, MessageSquare, Shield, Layers, FileText } from 'lucide-react';
 import { RebarSchematic, PipeSchematic, SheetSchematic, BeamSchematic } from './TechnicalSchematics';
 
-export default function ProductCatalog({ onOpenModal }) {
+export default function ProductCatalog() {
   const [activeTab, setActiveTab] = useState('all');
-  const [viewMode, setViewMode] = useState('schematic'); // 'schematic' or 'photo'
+  const [viewMode, setViewMode] = useState('schematic');
 
   const products = [
     {
@@ -15,7 +15,7 @@ export default function ProductCatalog({ onOpenModal }) {
       desc: 'Высокопрочная стальная арматура для монолитного строительства, фундаментов, ЖБИ изделий и несущих каркасов.',
       schematic: <RebarSchematic />,
       photo: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-      tag: 'Чертежи & Спецификация',
+      tag: 'ГОСТ 34028 / А500С',
       rustFree: true,
       specs: [
         { label: 'Марка стали', value: 'А500С / А400 / 35ГС' },
@@ -63,7 +63,7 @@ export default function ProductCatalog({ onOpenModal }) {
       desc: 'Гладкий, оцинкованный и рифленый листовой металл для производства, штамповки и фасадных элементов.',
       schematic: <SheetSchematic />,
       photo: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
-      tag: 'Точная геометрическая раскройка',
+      tag: 'Точный раскрой',
       rustFree: true,
       specs: [
         { label: 'Толщины', value: 'от 0.5 мм до 50 мм' },
@@ -114,21 +114,21 @@ export default function ProductCatalog({ onOpenModal }) {
       <div className="container">
         <div className="section-header">
           <span className="section-tag">Складской ассортимент</span>
-          <h2>Каталог и технические чертежи проката</h2>
+          <h2>Каталог продуктовых групп проката</h2>
           <p>
-            450+ позиций в наличии. Выберите режим отображения: технические CAD-чертежи или реальные стоковые фото.
+            450+ товарных позиций в наличии на базах. Каждая партия сопровождается заводскими сертификатами.
           </p>
 
-          {/* Toggle between Schematic Drawings and Real Stock Photos */}
-          <div style={{ display: 'inline-flex', background: '#E2E8F0', padding: '4px', borderRadius: 'var(--radius-full)', marginTop: '20px' }}>
+          {/* Toggle schematic or photos */}
+          <div style={{ display: 'inline-flex', background: '#E8F0EC', padding: '4px', borderRadius: 'var(--radius-full)', marginTop: '20px' }}>
             <button 
               onClick={() => setViewMode('schematic')}
               style={{
-                padding: '8px 18px',
+                padding: '8px 20px',
                 borderRadius: 'var(--radius-full)',
                 border: 'none',
-                background: viewMode === 'schematic' ? '#0F4C81' : 'transparent',
-                color: viewMode === 'schematic' ? '#FFFFFF' : '#475569',
+                background: viewMode === 'schematic' ? '#134E3C' : 'transparent',
+                color: viewMode === 'schematic' ? '#FFFFFF' : '#4B6358',
                 fontSize: '13px',
                 fontWeight: '700',
                 cursor: 'pointer',
@@ -137,16 +137,16 @@ export default function ProductCatalog({ onOpenModal }) {
                 gap: '6px'
               }}
             >
-              <FileText size={14} /> Инженерные наброски / Чертежи
+              <FileText size={14} /> CAD-чертежи
             </button>
             <button 
               onClick={() => setViewMode('photo')}
               style={{
-                padding: '8px 18px',
+                padding: '8px 20px',
                 borderRadius: 'var(--radius-full)',
                 border: 'none',
-                background: viewMode === 'photo' ? '#0F4C81' : 'transparent',
-                color: viewMode === 'photo' ? '#FFFFFF' : '#475569',
+                background: viewMode === 'photo' ? '#134E3C' : 'transparent',
+                color: viewMode === 'photo' ? '#FFFFFF' : '#4B6358',
                 fontSize: '13px',
                 fontWeight: '700',
                 cursor: 'pointer',
@@ -162,48 +162,19 @@ export default function ProductCatalog({ onOpenModal }) {
 
         {/* Filter Tabs */}
         <div className="catalog-tabs">
-          <button 
-            className={`tab-btn ${activeTab === 'all' ? 'active' : ''}`}
-            onClick={() => setActiveTab('all')}
-          >
-            Все позиции (450+)
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'armatura' ? 'active' : ''}`}
-            onClick={() => setActiveTab('armatura')}
-          >
-            Арматура
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'pipes' ? 'active' : ''}`}
-            onClick={() => setActiveTab('pipes')}
-          >
-            Трубы
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'sheets' ? 'active' : ''}`}
-            onClick={() => setActiveTab('sheets')}
-          >
-            Листовой прокат
-          </button>
-          <button 
-            className={`tab-btn ${activeTab === 'shaped' ? 'active' : ''}`}
-            onClick={() => setActiveTab('shaped')}
-          >
-            Балка, Швеллер & Уголок
-          </button>
+          <button className={`tab-btn ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>Все позиции (450+)</button>
+          <button className={`tab-btn ${activeTab === 'armatura' ? 'active' : ''}`} onClick={() => setActiveTab('armatura')}>Арматура</button>
+          <button className={`tab-btn ${activeTab === 'pipes' ? 'active' : ''}`} onClick={() => setActiveTab('pipes')}>Трубы</button>
+          <button className={`tab-btn ${activeTab === 'sheets' ? 'active' : ''}`} onClick={() => setActiveTab('sheets')}>Листовой прокат</button>
+          <button className={`tab-btn ${activeTab === 'shaped' ? 'active' : ''}`} onClick={() => setActiveTab('shaped')}>Балка, Швеллер & Уголок</button>
         </div>
 
-        {/* Catalog Cards Grid */}
+        {/* Catalog Grid */}
         <div className="catalog-grid">
           {filteredProducts.map((prod) => (
             <div key={prod.id} className="product-card">
-              <div className="product-img-wrapper" style={{ height: '220px' }}>
-                {viewMode === 'schematic' ? (
-                  prod.schematic
-                ) : (
-                  <img src={prod.photo} alt={prod.title} loading="lazy" />
-                )}
+              <div className="product-img-wrapper">
+                {viewMode === 'schematic' ? prod.schematic : <img src={prod.photo} alt={prod.title} loading="lazy" />}
                 <span className="product-tag">{prod.tag}</span>
               </div>
 
@@ -220,35 +191,17 @@ export default function ProductCatalog({ onOpenModal }) {
                   ))}
                 </div>
 
-                <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid var(--border-light)' }}>
-                  <button 
-                    className="btn btn-navy"
-                    style={{ width: '100%', fontSize: '13px', padding: '10px' }}
-                    onClick={() => onOpenModal(`Уточнение наличия: ${prod.title}`)}
-                  >
-                    Запросить стоимость под объём <ArrowRight size={14} />
-                  </button>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid var(--border-green)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                  <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '8px 10px', fontSize: '12px' }}>
+                    <Phone size={14} /> Позвонить
+                  </a>
+                  <a href="https://wa.me/37368471530" target="_blank" rel="noreferrer" className="btn btn-whatsapp" style={{ padding: '8px 10px', fontSize: '12px' }}>
+                    <MessageSquare size={14} /> WhatsApp
+                  </a>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div style={{ background: '#FFFFFF', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)', padding: '24px', marginTop: '40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', boxShadow: 'var(--shadow-sm)' }}>
-          <div>
-            <h4 style={{ fontSize: '16px', fontWeight: '800', color: 'var(--text-dark)' }}>
-              Нужен редкий профиль или нестандартная марка стали?
-            </h4>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>
-              Пришлем информацию по наличию и срокам прямой поставки под заказ за 15 минут.
-            </p>
-          </div>
-          <button 
-            className="btn btn-gold"
-            onClick={() => onOpenModal('Заявка на редкий металлопрокат')}
-          >
-            <FileSpreadsheet size={16} /> Отправить готовую ведомость VOR
-          </button>
         </div>
       </div>
     </section>
