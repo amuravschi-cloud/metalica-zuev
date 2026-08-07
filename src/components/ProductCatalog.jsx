@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Layers, ShieldCheck, ArrowRight, Check } from 'lucide-react';
+import { Phone, MessageSquare } from 'lucide-react';
 
 export default function ProductCatalog() {
   const [activeTab, setActiveTab] = useState('all');
@@ -11,7 +11,7 @@ export default function ProductCatalog() {
       title: 'Арматура А500С / А400',
       subtitle: 'Гладкая и периодического профиля (Ø 8 - 32 мм)',
       desc: 'Высокопрочная стальная арматура для монолитного строительства, фундаментов, ЖБИ изделий и несущих каркасов.',
-      photo: '/images/rebar.png',
+      photo: './images/rebar.png',
       tag: 'ГОСТ 34028 / А500С',
       specs: [
         { label: 'Марка стали', value: 'А500С / А400 / 35ГС' },
@@ -25,7 +25,7 @@ export default function ProductCatalog() {
       title: 'Круглая труба',
       subtitle: 'Водогазопроводная и электросварная',
       desc: 'Стальные трубы различных диаметров и толщины стенки для инженерных сетей, металлоконструкций и гидросистем.',
-      photo: '/images/pipes.png',
+      photo: './images/pipes.png',
       tag: 'ГОСТ и EN стандарты',
       specs: [
         { label: 'Диаметры', value: 'от 15 мм до 219+ мм' },
@@ -39,7 +39,7 @@ export default function ProductCatalog() {
       title: 'Профильная труба',
       subtitle: 'Квадратная и прямоугольная стальная',
       desc: 'Профильный прокат с точной геометрией сечения для навесов, заборов, ангаров и строительных лесов.',
-      photo: '/images/pipes.png',
+      photo: './images/pipes.png',
       tag: 'Высокая прочность',
       specs: [
         { label: 'Сечения', value: '15х15 мм — 120х120 мм' },
@@ -53,7 +53,7 @@ export default function ProductCatalog() {
       title: 'Листовой прокат',
       subtitle: 'Г/К, Х/К и Оцинкованный лист',
       desc: 'Гладкий, оцинкованный и рифленый листовой металл для производства, штамповки и фасадных элементов.',
-      photo: '/images/sheets.png',
+      photo: './images/sheets.png',
       tag: 'Точный раскрой',
       specs: [
         { label: 'Толщины', value: 'от 0.5 мм до 50 мм' },
@@ -67,7 +67,7 @@ export default function ProductCatalog() {
       title: 'Двутавровая балка',
       subtitle: 'Профиль 10Б1 — 30Б1 (Н-образный)',
       desc: 'Горячекатаный фасонный прокат Н-образного сечения для высоких нагрузок и межэтажных перекрытий.',
-      photo: '/images/beams.png',
+      photo: './images/beams.png',
       tag: 'Максимальные нагрузки',
       specs: [
         { label: 'Профиль', value: 'Б1, Б2, К1, К2' },
@@ -81,7 +81,7 @@ export default function ProductCatalog() {
       title: 'Швеллер и Уголок',
       subtitle: 'П-образный и равнополочный профиль',
       desc: 'Фасонные элементы для армирования стен, создания рамы техники и сопряжения балочных конструкций.',
-      photo: '/images/beams.png',
+      photo: './images/beams.png',
       tag: 'ГОСТ сертификация',
       specs: [
         { label: 'Швеллер', value: '№ 5U, 8U, 10U — 30U' },
@@ -121,13 +121,12 @@ export default function ProductCatalog() {
             <div key={prod.id} className="product-card">
               <div className="product-img-wrapper">
                 <img src={prod.photo} alt={prod.title} loading="lazy" />
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(180deg, rgba(7,29,22,0.6) 0%, rgba(7,29,22,0.1) 50%, rgba(7,29,22,0.85) 100%)' }} />
                 <span className="product-tag">{prod.tag}</span>
               </div>
 
               <div className="product-body">
                 <h3 className="product-title">{prod.title}</h3>
-                <p style={{ fontSize: '12px', fontWeight: '700', color: 'var(--brand-green)', marginBottom: '8px' }}>{prod.subtitle}</p>
+                <p style={{ fontSize: '13px', fontWeight: '700', color: 'var(--brand-green)', marginBottom: '8px' }}>{prod.subtitle}</p>
                 <p className="product-desc">{prod.desc}</p>
 
                 <div className="product-specs">
