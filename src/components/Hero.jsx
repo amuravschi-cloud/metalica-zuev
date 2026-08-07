@@ -1,10 +1,19 @@
 import React from 'react';
-import { Phone, MessageSquare, ShieldCheck, CheckCircle2, Award, Building2, Truck } from 'lucide-react';
+import { Phone, MessageSquare, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export default function Hero() {
   return (
     <>
-      <section className="hero-metallic" id="top">
+      <section 
+        className="hero-metallic" 
+        id="top" 
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(7, 29, 22, 0.85) 0%, rgba(14, 56, 43, 0.92) 100%), url('./images/beams.png')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
