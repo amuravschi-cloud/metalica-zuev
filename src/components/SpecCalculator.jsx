@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Calculator, X, Send, CheckCircle2, Scissors, Truck, Sparkles, MessageSquare, Phone } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -60,21 +61,28 @@ export default function SpecCalculator({ onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="calc-modal-industrial" onClick={(e) => e.stopPropagation()}>
+      <motion.div 
+        className="modal-metal-plate"
+        onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ duration: 0.3 }}
+      >
         {onClose && (
-          <button className="modal-close-btn" onClick={onClose} style={{ background: '#F1F5F9', color: '#0F172A' }}>
+          <button className="modal-close-btn" onClick={onClose}>
             <X size={20} />
           </button>
         )}
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-          <Calculator size={22} color="var(--brand-green)" />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--brand-green)', fontWeight: '700', textTransform: 'uppercase' }}>
+          <Calculator size={22} color="#34D399" />
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-emerald)', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             ГОСТ Справочник Веса Проката
           </span>
         </div>
 
-        <h2 style={{ fontSize: '28px', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '24px' }}>
+        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '28px', color: '#FFFFFF', marginBottom: '24px' }}>
           Расчёт массы и спеццены партий
         </h2>
 
@@ -90,13 +98,14 @@ export default function SpecCalculator({ onClose }) {
               style={{
                 padding: '8px 18px',
                 borderRadius: 'var(--radius-sm)',
-                border: '1px solid var(--border-light)',
-                background: category === catKey ? 'var(--brand-green)' : '#F8FAFC',
-                color: category === catKey ? '#FFFFFF' : 'var(--text-dark)',
+                border: '1px solid var(--border-chrome)',
+                background: category === catKey ? 'var(--metal-emerald-bg)' : 'rgba(255, 255, 255, 0.05)',
+                color: category === catKey ? '#FFFFFF' : 'var(--text-secondary)',
                 fontSize: '13px',
                 fontWeight: '700',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                boxShadow: category === catKey ? 'var(--shadow-bevel)' : 'none'
               }}
             >
               {categories[catKey].name}
@@ -106,7 +115,7 @@ export default function SpecCalculator({ onClose }) {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: '600' }}>
+            <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '8px', fontWeight: '600' }}>
               Выберите типоразмер:
             </label>
             <select
@@ -115,10 +124,10 @@ export default function SpecCalculator({ onClose }) {
               style={{
                 width: '100%',
                 padding: '12px 16px',
-                background: '#F8FAFC',
-                border: '1px solid var(--border-light)',
+                background: '#0B121B',
+                border: '1px solid var(--border-chrome)',
                 borderRadius: 'var(--radius-sm)',
-                color: 'var(--text-dark)',
+                color: '#FFFFFF',
                 fontSize: '14px',
                 fontWeight: '700',
                 outline: 'none'
@@ -132,9 +141,9 @@ export default function SpecCalculator({ onClose }) {
             </select>
 
             <div style={{ marginTop: '20px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--text-muted)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--text-secondary)' }}>
                 <span>Длина / Метраж:</span>
-                <strong style={{ color: 'var(--brand-green)', fontFamily: 'var(--font-mono)' }}>{meters} м</strong>
+                <strong style={{ color: 'var(--text-emerald)', fontFamily: 'var(--font-mono)' }}>{meters} м</strong>
               </div>
               <input 
                 type="range"
@@ -144,20 +153,19 @@ export default function SpecCalculator({ onClose }) {
                 value={meters}
                 onChange={(e) => setMeters(Number(e.target.value))}
                 className="calc-range-slider"
-                style={{ accentColor: 'var(--brand-green)' }}
               />
             </div>
           </div>
 
           {/* Live Weight Result Box */}
-          <div style={{ background: 'var(--brand-green-light)', border: '1px solid var(--border-green)', borderRadius: 'var(--radius-md)', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
-            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--brand-green)', textTransform: 'uppercase', fontWeight: '800' }}>
+          <div style={{ background: 'rgba(52, 211, 153, 0.08)', border: '1px solid var(--border-emerald)', borderRadius: 'var(--radius-md)', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
+            <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--text-emerald)', textTransform: 'uppercase', fontWeight: '800' }}>
               РАССЧИТАННАЯ МАССА ПАРТИИ
             </span>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '42px', fontWeight: '800', color: 'var(--brand-green)', margin: '6px 0' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '42px', fontWeight: '800', color: 'var(--text-emerald)', margin: '6px 0' }}>
               {totalWeightKg} <span style={{ fontSize: '20px' }}>кг</span>
             </div>
-            <span style={{ fontSize: '15px', color: 'var(--text-dark)', fontWeight: '800' }}>
+            <span style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: '800' }}>
               ≈ {totalTons} тонн
             </span>
           </div>
@@ -165,10 +173,10 @@ export default function SpecCalculator({ onClose }) {
 
         {/* Form Submission */}
         {submitted ? (
-          <div style={{ background: '#F0FDF4', border: '1px solid #86EFAC', padding: '20px', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
-            <CheckCircle2 size={32} color="#16A34A" style={{ margin: '0 auto 8px auto' }} />
-            <h4 style={{ color: '#166534', fontSize: '16px', fontWeight: '800' }}>Расчёт отправлен менеджеру базы!</h4>
-            <p style={{ color: '#15803D', fontSize: '13px', marginTop: '4px' }}>Специалист свяжется с вами с итоговой накладной.</p>
+          <div style={{ background: 'rgba(52, 211, 153, 0.15)', border: '1px solid var(--text-emerald)', padding: '20px', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
+            <CheckCircle2 size={32} color="#34D399" style={{ margin: '0 auto 8px auto' }} />
+            <h4 style={{ color: '#FFFFFF', fontSize: '16px', fontWeight: '800' }}>Расчёт отправлен менеджеру базы!</h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '13px', marginTop: '4px' }}>Специалист свяжется с вами с итоговой накладной.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '12px' }}>
@@ -181,20 +189,20 @@ export default function SpecCalculator({ onClose }) {
               style={{
                 flex: 1,
                 padding: '14px 18px',
-                background: '#F8FAFC',
-                border: '1px solid var(--border-light)',
+                background: '#0B121B',
+                border: '1px solid var(--border-chrome)',
                 borderRadius: 'var(--radius-sm)',
-                color: 'var(--text-dark)',
+                color: '#FFFFFF',
                 fontSize: '14px',
                 outline: 'none'
               }}
             />
-            <button type="submit" className="btn-industrial btn-brand-green" style={{ padding: '14px 28px' }}>
+            <button type="submit" className="btn-metal btn-metal-emerald" style={{ padding: '14px 28px' }}>
               <Send size={16} /> Запросить КП
             </button>
           </form>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

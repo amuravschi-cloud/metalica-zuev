@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <div className="app-wrapper">
-      {/* Top Editorial Motion Progress Line */}
+      {/* Top Metallic Motion Progress Indicator */}
       <motion.div 
         style={{
           scaleX,
@@ -29,9 +29,10 @@ export default function App() {
           left: 0,
           right: 0,
           height: '3px',
-          background: 'linear-gradient(90deg, #10B981, #A3E635)',
+          background: 'linear-gradient(90deg, #059669, #34D399, #F59E0B)',
           transformOrigin: '0%',
-          zIndex: 1000
+          zIndex: 1000,
+          boxShadow: '0 0 10px #34D399'
         }}
       />
 
