@@ -1,63 +1,68 @@
 import React from 'react';
-import { Phone, Mail, ArrowUp, Clock, MessageSquare } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Clock, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="footer">
+    <footer style={{ background: '#020504', borderTop: '1px solid var(--border-subtle)', padding: '60px 0 30px 0', fontSize: '13px', color: 'var(--text-secondary)' }}>
       <div className="container">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            <b>METALICA ZUEV</b>
-            <p>
-              Один из крупнейших поставщиков чёрного металлопроката в Республике Молдова с 1995 года. Прямые заводские контракты, 3 открытые металлобазы и узловой логистический хаб.
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '40px', marginBottom: '40px' }}>
+          <div>
+            <div className="brand-logo-editorial" style={{ marginBottom: '16px' }}>
+              <div className="brand-icon-editorial">MZ</div>
+              <div className="brand-text-editorial">
+                <b>METALICA ZUEV</b>
+                <small>BESPOKE STEEL SUPPLIES</small>
+              </div>
+            </div>
+            <p style={{ lineHeight: '1.6', color: 'var(--text-muted)' }}>
+              Системообразующий поставщик чёрного металлопроката в Республике Молдова с 1995 года.
             </p>
-            <div style={{ marginTop: '20px', fontSize: '13px', color: '#64748B' }}>
-              © 1995–2026 Metalica Zuev SRL. Все права защищены.
+          </div>
+
+          <div>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', color: '#FFFFFF', marginBottom: '14px' }}>Каталог</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <a href="#catalog" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Арматура А500С / А400</a>
+              <a href="#catalog" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Профильная & Круглая труба</a>
+              <a href="#catalog" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Листовой прокат Г/К, Х/К</a>
+              <a href="#catalog" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Двутавр, Швеллер, Уголок</a>
             </div>
           </div>
 
-          <div className="footer-col">
-            <h4>Разделы и информация</h4>
-            <ul>
-              <li><a href="#company">О компании</a></li>
-              <li><a href="#catalog">Ассортимент металлопроката</a></li>
-              <li><a href="#capabilities">Оснащение & Сервис</a></li>
-              <li><a href="#bases">Локации металлобаз</a></li>
-              <li><a href="#contact">Контакты отделов</a></li>
-            </ul>
+          <div>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', color: '#FFFFFF', marginBottom: '14px' }}>Локации склада</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <span>• Кишинёв: str. Industrială, 48</span>
+              <span>• Кишинёв: str. Transnistria, 3A</span>
+              <span>• Орхей: str. Unirii, 49D</span>
+              <span>• Сынжера: str. Industrială, 3</span>
+            </div>
           </div>
 
-          <div className="footer-col">
-            <h4>Отдел продаж и контакты</h4>
-            <ul>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={16} color="#4ADE80" /> <strong>+373 68 47-15-30</strong> (Мобильный / Viber)
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={16} color="#4ADE80" /> +373 22 47-15-30 (Городской)
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Clock size={16} color="#4ADE80" /> Пн–Пт · 08:00 – 17:00
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Mail size={16} color="#4ADE80" /> info@mz.md
-              </li>
-            </ul>
-            <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
-              <a href="tel:+37368471530" className="btn btn-brand" style={{ padding: '8px 14px', fontSize: '12px' }}>
-                <Phone size={14} /> Позвонить
+          <div>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', color: '#FFFFFF', marginBottom: '14px' }}>Отдел продаж</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <a href="tel:+37368471530" style={{ color: 'var(--text-emerald)', fontWeight: '700', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Phone size={14} /> +373 68 47-15-30
               </a>
-              <a href="viber://chat?number=%2B37368471530" className="btn btn-viber" style={{ padding: '8px 14px', fontSize: '12px' }}>
-                <MessageSquare size={14} /> Viber
+              <a href="viber://chat?number=%2B37368471530" style={{ color: '#A78BFA', fontWeight: '700', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MessageSquare size={14} /> Viber Direct
               </a>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--text-muted)' }}>
+                <Clock size={13} /> Пн–Пт 08:00–17:00
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <span>Официальный информационный сайт поставщика металлопроката Metalica Zuev SRL в Молдове</span>
-          <a href="#top" style={{ color: '#D1E5DC', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            Наверх страницы <ArrowUp size={14} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '24px', borderTop: '1px solid var(--border-subtle)', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            © {currentYear} Metalica Zuev SRL. Все права защищены.
+          </div>
+          <a href="#top" style={{ color: 'var(--text-emerald)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: '700' }}>
+            Наверх <ArrowUp size={14} />
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Clock, CheckCircle, Navigation } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Phone, Clock, CheckCircle, Navigation, ShieldCheck } from 'lucide-react';
 
 export default function BasesMap() {
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(0);
@@ -10,144 +11,124 @@ export default function BasesMap() {
       title: 'Металлобаза №1 (Кишинёв)',
       city: 'Chișinău',
       address: 'str. Industrială, 48',
-      type: 'Открытая металлобаза · Склад металла',
+      type: 'Центральный склад металла',
       hours: 'Пн–Пт: 08:00 – 17:00',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Industrial%C4%83+48+Chisinau',
-      features: ['Козловые краны 15т', 'Склад сортового и фасонного проката', 'Гильотинная и лентопильная резка', 'Точный весовой контроль'],
-      desc: 'Открытый складской комплекс компании с широким ассортиментом чёрного металлопроката и быстрой крановой отгрузкой.'
+      features: ['Козловые краны 15т', 'Полный ассортимент 450+ позиций', 'Гильотинная & лентопильная резка', 'Точный весовой контроль'],
+      desc: 'Главный складской комплекс с тяжелой крановой инфраструктурой и открытыми площадками хранения сортового проката.'
     },
     {
       id: 'base2',
       title: 'Металлобаза №2 (Кишинёв)',
       city: 'Chișinău',
-      address: 'str. Transnistria, 3A (заезд с str. Vadul lui Vodă, 142)',
-      type: 'Открытая металлобаза · Склад металла',
+      address: 'str. Transnistria, 3A (заезд str. Vadul lui Vodă, 142)',
+      type: 'Открытая металлобаза',
       hours: 'Пн–Пт: 08:00 – 17:00',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Transnistria+3A+Chisinau',
-      features: ['Открытый склад металлопроката', 'Лентопильная резка', 'Удобный подъезд длинномеров', 'Погрузка крановым оборудованием'],
-      desc: 'Открытая металлобаза с удобным заездом с улицы Вадул-луй-Водэ (142), оборудованная под отгрузку тяжелых длинномеров.'
+      features: ['Удобный заезд для 12-метровых длинномеров', 'Лентопильная резка', 'Погрузка мостовым краном'],
+      desc: 'Специализированная площадка для оперативной отгрузки строительных ферм, швеллера и профильных труб.'
     },
     {
       id: 'base3',
       title: 'Региональная Металлобаза №3 (Орхей)',
       city: 'Orhei',
       address: 'str. Unirii, 49D',
-      type: 'Региональная металлобаза',
+      type: 'Региональный хаб',
       hours: 'Пн–Пт: 08:00 – 17:00 | Сб: 08:00 – 14:00',
       isSaturdayOpen: true,
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Orhei',
-      features: ['Отгрузка по субботам до 14:00', 'Быстрая доставка по Северу', 'Крановая погрузка', 'Прямой выезд на трассу'],
-      desc: 'Обеспечивает поставками строительные объекты Оргеева, Бельц и северных районов Молдовы. Работает по субботам до 14:00.'
+      features: ['Отгрузка по субботам до 14:00', 'Быстрая доставка по Северным районам', 'Прямой выезд на трассу'],
+      desc: 'Обеспечивает поставками застройщиков Оргеева, Бельц и северных регионов Молдовы.'
     },
     {
       id: 'base4',
       title: 'Логистический Хаб (Сынжера)',
       city: 'Sîngera',
       address: 'str. Industrială, 3',
-      type: 'Логистический хаб',
+      type: 'Узловой логистический центр',
       hours: 'Пн–Пт: 08:00 – 17:00',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Metalica+Zuev+Singera',
-      features: ['Площадка тяжелого фасона', 'Склады балок и швеллеров', 'Парк длинномерных фур', 'Спецкомплектация проектов'],
-      desc: 'Узловой логистический центр распределения прямых заводских поставок и тяжелого фасонного проката.'
+      features: ['Площадка тяжелого двутаврового профиля', 'База длинномерного транспорта'],
+      desc: 'Распределительный центр прямого заводского импорта и спецкомплектации промышленных проектов.'
     }
   ];
 
   const currentBase = bases[selectedBaseIndex];
 
   return (
-    <section className="section" id="bases" style={{ background: '#F4F7F5' }}>
+    <section className="section-editorial" id="bases">
       <div className="container">
-        <div className="section-header">
-          <span className="section-tag">Складская сеть</span>
-          <h2>3 Металлобазы и Логистический хаб в Молдове</h2>
-          <p>
-            Равномерное распределение складских запасов позволяет комплектовать заказы любой сложности и минимизировать плечо доставки.
-          </p>
+        <div className="section-header-center">
+          <div className="section-eyebrow">
+            <ShieldCheck size={14} color="#10B981" /> Складская инфраструктура
+          </div>
+          <h2>Локации металлобаз в Молдове</h2>
+          <p>4 распределительных объекта обеспечивают оперативную отгрузку и минимальное плечо доставки.</p>
         </div>
 
-        <div className="bases-container">
-          <div className="bases-list">
+        <div className="bases-grid-editorial">
+          <div>
             {bases.map((b, idx) => (
-              <div 
-                key={b.id} 
-                className={`base-item-btn ${selectedBaseIndex === idx ? 'active' : ''}`}
+              <motion.div 
+                key={b.id}
+                className={`base-card-item ${selectedBaseIndex === idx ? 'active' : ''}`}
                 onClick={() => setSelectedBaseIndex(idx)}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
               >
-                <h4>
-                  <span>{b.city}</span>
-                  <span style={{ fontSize: '12px', color: 'var(--brand-green)', fontWeight: '700' }}>0{idx + 1}</span>
-                </h4>
-                <p style={{ fontWeight: '700', color: 'var(--text-dark)', margin: '4px 0 2px 0', lineHeight: '1.3' }}>{b.address}</p>
-                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginTop: '4px' }}>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{b.type}</span>
-                  {b.isSaturdayOpen && (
-                    <span style={{ background: '#FEF3C7', color: '#B45309', padding: '2px 8px', borderRadius: 'var(--radius-sm)', fontSize: '11px', fontWeight: '800' }}>
-                      Сб до 14:00
-                    </span>
-                  )}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#FFFFFF' }}>{b.city}</h4>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--accent-emerald)' }}>0{idx + 1}</span>
                 </div>
-              </div>
+                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px' }}>{b.address}</p>
+              </motion.div>
             ))}
           </div>
 
-          <div className="base-detail-card">
-            <div className="base-detail-info">
-              <div style={{ display: 'inline-flex', gap: '8px', alignItems: 'center', marginBottom: '12px' }}>
-                <span style={{ background: 'var(--brand-green-light)', color: 'var(--brand-green)', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '700' }}>
-                  {currentBase.type}
-                </span>
-                {currentBase.isSaturdayOpen && (
-                  <span style={{ background: '#FEF3C7', color: '#B45309', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '800' }}>
-                    Работает в субботу до 14:00
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={currentBase.id}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="base-display-box"
+            >
+              <div>
+                <span className="product-badge" style={{ marginBottom: '12px', display: 'inline-block' }}>{currentBase.type}</span>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '26px', color: '#FFFFFF', marginBottom: '12px' }}>{currentBase.title}</h3>
+                
+                <div style={{ display: 'flex', gap: '20px', color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <MapPin size={16} color="#10B981" /> {currentBase.address}
                   </span>
-                )}
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Clock size={16} color="#10B981" /> {currentBase.hours}
+                  </span>
+                </div>
+
+                <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>{currentBase.desc}</p>
+
+                <h4 style={{ fontSize: '14px', color: '#FFFFFF', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Инфраструктура базы:</h4>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '32px' }}>
+                  {currentBase.features.map((feat, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-primary)' }}>
+                      <CheckCircle size={14} color="#10B981" /> {feat}
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <h3>{currentBase.title}</h3>
-              
-              <div style={{ display: 'flex', gap: '20px', margin: '16px 0', fontSize: '14px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
-                  <MapPin size={16} color="var(--brand-green)" /> {currentBase.address}
-                </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
-                  <Clock size={16} color="var(--brand-green)" /> {currentBase.hours}
-                </span>
+              <div style={{ display: 'flex', gap: '12px', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
+                <a href={currentBase.mapUrl} target="_blank" rel="noreferrer" className="btn-editorial btn-emerald" style={{ flex: 1, fontSize: '13px' }}>
+                  <Navigation size={15} /> Открыть на Google Maps ↗
+                </a>
+                <a href="tel:+37368471530" className="btn-editorial btn-outline-glass" style={{ fontSize: '13px' }}>
+                  <Phone size={15} /> Проезд
+                </a>
               </div>
-
-              <p>{currentBase.desc}</p>
-
-              <h4 style={{ fontSize: '14px', fontWeight: '800', margin: '20px 0 12px 0', color: 'var(--bg-dark-green)' }}>
-                Оснащение и сервисы базы:
-              </h4>
-
-              <div className="base-features-list">
-                {currentBase.features.map((feat, i) => (
-                  <div key={i} className="base-feature-item">
-                    <CheckCircle size={16} color="#16A34A" /> {feat}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', paddingTop: '20px', borderTop: '1px solid var(--border-green)' }}>
-              <a 
-                href={currentBase.mapUrl} 
-                target="_blank" 
-                rel="noreferrer"
-                className="btn btn-brand"
-                style={{ flex: 1 }}
-              >
-                <Navigation size={16} /> Найти на Google Maps (Метка MZ) ↗
-              </a>
-
-              <a 
-                href="tel:+37368471530" 
-                className="btn btn-outline-dark"
-              >
-                <Phone size={16} /> Уточнить проезд
-              </a>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
