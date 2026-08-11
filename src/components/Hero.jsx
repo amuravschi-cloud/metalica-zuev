@@ -1,149 +1,110 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Phone, MessageSquare, ShieldCheck, CheckCircle2, ArrowUpRight, Compass } from 'lucide-react';
+import { Phone, MessageSquare, ShieldCheck, CheckCircle2, Truck, Award } from 'lucide-react';
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
-  };
-
   return (
     <>
-      <section className="hero-editorial" id="top">
+      <section className="hero-industrial-photo" id="top">
         <div className="container">
-          <motion.div 
-            className="hero-grid-editorial"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className="hero-content-editorial">
-              <motion.div variants={itemVariants} className="section-eyebrow">
-                <ShieldCheck size={14} color="#10B981" /> Прямой заводской импорт · Республиканский масштаб
-              </motion.div>
+          <div className="hero-grid-industrial">
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(6, 78, 59, 0.4)', border: '1px solid rgba(52, 211, 153, 0.3)', color: '#6EE7B7', padding: '6px 16px', borderRadius: 'var(--radius-full)', fontSize: '13px', fontWeight: '700', marginBottom: '24px' }}>
+                <ShieldCheck size={16} color="#34D399" /> Прямой поставщик стального проката в Республике Молдова
+              </div>
 
-              <motion.h1 variants={itemVariants}>
-                Металлопрокат <br />
-                <span className="gradient-text">бескомпромиссного</span> <br />
-                качества.
-              </motion.h1>
+              <h1>
+                Металлопрокат <em>заводского качества</em> для стройки любой сложности.
+              </h1>
 
-              <motion.p variants={itemVariants} className="hero-lead-editorial">
-                Самый большой складской резерв в Молдове: 450+ номенклатурных позиций проката на 3-х действующих металлобазах и центральном хабе. 
-                Прямые отгрузки, плазменная & лентопильная резка и экспресс-доставка.
-              </motion.p>
+              <p className="hero-lead-industrial">
+                Самый большой складской резерв в стране: 450+ позиций чёрного проката в наличии на 3-х действующих металлобазах и центральном хабе. 
+                Прямой импорт, сертификаты ГОСТ / EN 10025, резка в точный размер и отгрузка козловыми кранами под ваш объект.
+              </p>
 
-              <motion.div variants={itemVariants} className="hero-actions-editorial">
-                <motion.a 
-                  href="tel:+37368471530" 
-                  className="btn-editorial btn-emerald"
-                  style={{ padding: '16px 36px', fontSize: '15px' }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <Phone size={18} /> Связаться с отделом продаж
-                </motion.a>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '48px' }}>
+                <a href="tel:+37368471530" className="btn-industrial btn-brand-green" style={{ padding: '16px 32px', fontSize: '16px' }}>
+                  <Phone size={20} /> Звонок отделу продаж
+                </a>
 
-                <motion.a 
+                <a 
                   href="viber://chat?number=%2B37368471530" 
-                  className="btn-editorial btn-viber"
-                  style={{ padding: '16px 28px', fontSize: '15px' }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  className="btn-industrial btn-viber-industrial" 
+                  style={{ padding: '16px 28px', fontSize: '16px' }}
                 >
-                  <MessageSquare size={18} /> Viber Консультация <ArrowUpRight size={16} />
-                </motion.a>
-              </motion.div>
+                  <MessageSquare size={20} /> Запрос в Viber ↗
+                </a>
+              </div>
 
-              <motion.div variants={itemVariants} className="hero-stats-grid">
-                <div className="stat-box">
-                  <div className="stat-number">30+</div>
-                  <div className="stat-label">Лет лидерства в РМ</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', paddingTop: '28px', borderTop: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                <div>
+                  <strong style={{ display: 'block', fontSize: '38px', fontWeight: '800', color: '#FFFFFF', fontFamily: 'var(--font-mono)' }}>30+ лет</strong>
+                  <span style={{ fontSize: '13px', color: '#94A3B8', fontWeight: '600', marginTop: '4px', display: 'block' }}>опыта поставок в РМ</span>
                 </div>
-                <div className="stat-box">
-                  <div className="stat-number">450+</div>
-                  <div className="stat-label">Позиций в наличии</div>
+                <div>
+                  <strong style={{ display: 'block', fontSize: '38px', fontWeight: '800', color: '#FFFFFF', fontFamily: 'var(--font-mono)' }}>450+</strong>
+                  <span style={{ fontSize: '13px', color: '#94A3B8', fontWeight: '600', marginTop: '4px', display: 'block' }}>позиций в наличии</span>
                 </div>
-                <div className="stat-box">
-                  <div className="stat-number">3+1</div>
-                  <div className="stat-label">Базы + Лог-хаб</div>
+                <div>
+                  <strong style={{ display: 'block', fontSize: '38px', fontWeight: '800', color: '#FFFFFF', fontFamily: 'var(--font-mono)' }}>3+1</strong>
+                  <span style={{ fontSize: '13px', color: '#94A3B8', fontWeight: '600', marginTop: '4px', display: 'block' }}>металлобазы + хаб</span>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
-            {/* Right Editorial Showcase Box */}
-            <motion.div variants={itemVariants}>
-              <motion.div 
-                className="hero-glass-card"
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', paddingBottom: '16px', borderBottom: '1px solid var(--border-subtle)' }}>
-                  <div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', color: '#FFFFFF' }}>Metalica Zuev SRL</h3>
-                    <p style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>ЭТАЛОН ПОСТАВОК С 1995 ГОДА</p>
-                  </div>
-                  <Compass size={28} color="#10B981" />
+            {/* Industrial Showcase Card */}
+            <div>
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: '0 25px 50px rgba(0,0,0,0.5)', backdropFilter: 'blur(16px)' }}>
+                <div style={{ marginBottom: '20px', paddingBottom: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.12)' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: '800', color: '#FFFFFF' }}>Metalica Zuev SRL</h3>
+                  <p style={{ fontSize: '13px', color: '#94A3B8', fontWeight: '600', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
+                    ОФИЦИАЛЬНЫЙ ПОСТАВЩИК ПРОКАТА С 1995 ГОДА
+                  </p>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
                   {[
-                    'Крупнейший складской запас в Республике Молдова',
-                    '100% заводская сертификация ГОСТ / EN 10025',
-                    'Heavy-Duty погрузка козловыми кранами',
-                    'Высокоточная резка в точный размер заказчика'
-                  ].map((feat, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14px', color: 'var(--text-primary)' }}>
-                      <CheckCircle2 size={16} color="#10B981" /> {feat}
+                    'Крупнейший складской резерв проката в Молдове',
+                    '100% сертификация качества ГОСТ / EN 10025',
+                    'Погрузка heavy-duty козловыми кранами 15т',
+                    'Точная плазменная и лентопильная резка'
+                  ].map((text, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14px', color: '#FFFFFF', fontWeight: '600' }}>
+                      <CheckCircle2 size={18} color="#34D399" /> {text}
                     </div>
                   ))}
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
-                  <a href="tel:+37368471530" className="btn-editorial btn-outline-glass" style={{ padding: '12px', fontSize: '13px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+                  <a href="tel:+37368471530" className="btn-industrial btn-brand-green" style={{ padding: '10px', fontSize: '13px' }}>
                     <Phone size={14} /> +373 68 47-15-30
                   </a>
-                  <a href="viber://chat?number=%2B37368471530" className="btn-editorial btn-viber" style={{ padding: '12px', fontSize: '13px' }}>
-                    <MessageSquare size={14} /> Viber Direct
+                  <a href="viber://chat?number=%2B37368471530" className="btn-industrial btn-viber-industrial" style={{ padding: '10px', fontSize: '13px' }}>
+                    <MessageSquare size={14} /> Viber ↗
                   </a>
                 </div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Infinite Motion Ticker Strip */}
-      <div className="ticker-container" aria-label="Номенклатура проката">
+      {/* Industrial Ticker */}
+      <div style={{ background: '#0B131F', color: '#FFFFFF', padding: '16px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', overflow: 'hidden', whiteSpace: 'nowrap' }}>
         <div className="ticker-track">
           {[
-            'АРМАТУРА А500С / А400',
-            'ТРУБА ПРОФИЛЬНАЯ И КРУГЛАЯ',
-            'ЛИСТОВОЙ ПРОКАТ Г/К И Х/К',
-            'ДВУТАВРОВАЯ БАЛКА Б1 / Ш1',
-            'ШВЕЛЛЕР И УГОЛОК ГОСТ',
-            'СЕТКА СВАРНАЯ И КАТАНКА',
-            'РЕЗКА В РАЗМЕР И КРАНЫ',
-            'АРМАТУРА А500С / А400',
-            'ТРУБА ПРОФИЛЬНАЯ И КРУГЛАЯ',
-            'ЛИСТОВОЙ ПРОКАТ Г/К И Х/К',
-            'ДВУТАВРОВАЯ БАЛКА Б1 / Ш1',
-            'ШВЕЛЛЕР И УГОЛОК ГОСТ',
-          ].map((item, index) => (
-            <div className="ticker-item" key={index}>
-              {item} <span className="highlight">◆</span>
+            'АРМАТУРА А500С / А400 (Ø 8-32мм)',
+            'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРЯМОУГОЛЬНАЯ',
+            'ЛИСТОВОЙ ПРОКАТ Г/К, Х/К, ОЦИНКОВАННЫЙ',
+            'ДВУТАВРОВАЯ БАЛКА Б1 / Б2 / К1',
+            'ШВЕЛЛЕР № 5U - 30U И УГОЛОК ГОСТ',
+            'СЕТКА ВР-1 И ВЯЗАЛЬНАЯ ПРОВОЛОКА',
+            'АРМАТУРА А500С / А400 (Ø 8-32мм)',
+            'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРЯМОУГОЛЬНАЯ',
+            'ЛИСТОВОЙ ПРОКАТ Г/К, Х/К, ОЦИНКОВАННЫЙ',
+            'ДВУТАВРОВАЯ БАЛКА Б1 / Б2 / К1',
+          ].map((item, idx) => (
+            <div className="ticker-item" key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '13px', fontWeight: '800', fontFamily: 'var(--font-mono)', color: '#CBD5E1', paddingRight: '36px' }}>
+              {item} <span style={{ color: '#34D399' }}>◆</span>
             </div>
           ))}
         </div>

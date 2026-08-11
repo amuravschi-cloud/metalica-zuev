@@ -1,57 +1,48 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Scissors, Truck, Layers, Wrench, CheckCircle2, Phone, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Scissors, Layers, Wrench, Truck, CheckCircle2, Phone, MessageSquare } from 'lucide-react';
 
 export default function Capabilities() {
   const capabilitiesList = [
     {
-      icon: Scissors,
+      icon: <Scissors size={26} />,
       title: 'Высокоточная резка в размер',
-      desc: 'Лентопильная, плазменная и гильотинная резка точно по вашим чертежам. Готовые отрезки сразу готовы к монтажу.'
+      desc: 'Газовая, лентопильная и плазменная резка по вашей спецификации и чертежам. Готовые отрезки сразу под монтаж.'
     },
     {
-      icon: Layers,
-      title: 'Сборные ведомости (VOR)',
-      desc: 'Комплектуем сборные партии из 10+ наименований (арматура + труба + листы + балки) в один длинномер.'
+      icon: <Layers size={26} />,
+      title: 'Комплектация по ведомости VOR',
+      desc: 'Соберём сборную партию из различных категорий (арматура + труба + швеллер) на одной машине с точностью до килограмма.'
     },
     {
-      icon: Wrench,
-      title: 'Heavy-Duty Козловые Краны',
-      desc: 'Все базы оснащены мостовыми кранами для безотказной и безопасной погрузки любых объёмов и длинномеров.'
+      icon: <Wrench size={26} />,
+      title: 'Козловые краны и погрузка',
+      desc: 'Все металлобазы оборудованы heavy-duty козловыми и мостовыми кранами для безопасной и оперативной отгрузки длинномеров.'
     },
     {
-      icon: Truck,
-      title: 'Экспресс-Доставка по РМ',
-      desc: 'Собственный парк длинномеров (12м) и спецтехники. Доставляем прямо на строительный объект.'
+      icon: <Truck size={26} />,
+      title: 'Доставка по всей Молдове',
+      desc: 'Собственный логистический автопарк длинномеров (12м) и шаланд. Быстрая доставка прямо на вашу строительную площадку.'
     }
   ];
 
   return (
-    <section className="section-editorial" id="capabilities" style={{ background: 'var(--bg-surface-dark)' }}>
+    <section className="section-industrial" id="capabilities" style={{ background: '#F1F5F9' }}>
       <div className="container">
-        <div className="section-header-center">
-          <div className="section-eyebrow">
-            <ShieldCheck size={14} color="#10B981" /> Сервис & Сертифицированная Логистика
-          </div>
-          <h2>Подготовка и отгрузка металла</h2>
-          <p>Полный цикл складской обработки и контроль качества каждой партии.</p>
+        <div className="section-header-industrial">
+          <span className="section-tag-industrial">Сервис & Логистика</span>
+          <h2>Не просто отгружаем. Готовим металл к работе.</h2>
+          <p>Обеспечиваем полный цикл складской подготовки: от резки в размер до быстрой отгрузки козловыми кранами.</p>
         </div>
 
-        <div className="catalog-grid-editorial">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '28px' }}>
           {capabilitiesList.map((cap, idx) => (
-            <motion.div 
-              key={idx} 
-              className="product-card-editorial"
-              style={{ padding: '32px' }}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', width: '52px', height: '52px', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10B981', marginBottom: '20px' }}>
-                <cap.icon size={26} />
+            <div key={idx} style={{ background: '#FFFFFF', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)', padding: '32px 24px', boxShadow: 'var(--shadow-sm)' }}>
+              <div style={{ width: '54px', height: '54px', background: 'var(--brand-green-light)', color: 'var(--brand-green)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                {cap.icon}
               </div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '22px', color: '#FFFFFF', marginBottom: '10px' }}>{cap.title}</h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{cap.desc}</p>
-            </motion.div>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '10px', color: 'var(--text-dark)' }}>{cap.title}</h3>
+              <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{cap.desc}</p>
+            </div>
           ))}
         </div>
       </div>

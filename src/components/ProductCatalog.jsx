@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageSquare, Table, LayoutGrid, CheckCircle2, ShieldCheck, Sparkles, ArrowRight } from 'lucide-react';
+import { Phone, MessageSquare, Table, LayoutGrid, Calculator, ShieldCheck, Sparkles } from 'lucide-react';
 import SpecCalculator from './SpecCalculator';
 
 export default function ProductCatalog() {
@@ -15,8 +14,9 @@ export default function ProductCatalog() {
       category: 'armatura',
       title: 'Арматура А500С / А400',
       subtitle: 'Гладкая и периодическая (Ø 8 – 32 мм)',
-      desc: 'Высокопрочная стальная арматура для монолитного домостроения, фундаментов, ЖБИ изделий и несущих пространственных каркасов.',
+      desc: 'Высокопрочная стальная арматура для монолитного строительства, фундаментов, ЖБИ изделий и несущих пространственных каркасов.',
       tag: 'ГОСТ 34028 / А500С',
+      image: './images/rebar.png',
       specs: [
         { label: 'Марка стали', value: 'А500С / А400 / 35ГС' },
         { label: 'Диаметры в наличии', value: '8, 10, 12, 14, 16, 18, 20-32 мм' },
@@ -25,33 +25,35 @@ export default function ProductCatalog() {
       ]
     },
     {
-      id: 'pipes_round',
-      code: '02',
-      category: 'pipes',
-      title: 'Круглая стальная труба',
-      subtitle: 'Водогазопроводная и электросварная',
-      desc: 'Стальные трубы различных диаметров и толщины стенки для инженерных коммуникаций, металлических конструкций и гидросистем.',
-      tag: 'ГОСТ 3262-75 / 10704-91',
-      specs: [
-        { label: 'Диаметры наружные', value: 'от 15 мм до 219+ мм (1/2" — 8")' },
-        { label: 'Толщина стенки', value: 'от 2.0 мм до 8.0 мм' },
-        { label: 'Стандарты', value: 'ГОСТ, EN 10217, EN 10255' },
-        { label: 'Применение', value: 'ВГП, Несущие строительные стойки' },
-      ]
-    },
-    {
       id: 'pipes_prof',
-      code: '03',
+      code: '02',
       category: 'pipes',
       title: 'Профильная труба',
       subtitle: 'Квадратное и прямоугольное сечение',
       desc: 'Профильный прокат с точной геометрией сечения для навесов, заборов, ангаров, легких ферм и строительных лесов.',
       tag: 'ГОСТ 8639-82 / 8645-68',
+      image: './images/pipes.png',
       specs: [
         { label: 'Сечения квадратные', value: '15х15, 20х20, 40х40, 60х60, 100х100' },
         { label: 'Прямоугольные', value: '40х20, 50х25, 60х40, 80х40, 100х50' },
         { label: 'Толщина стенки', value: 'от 1.5 мм до 6.0 мм' },
         { label: 'Марка стали', value: 'Ст3сп / Ст10 / 09Г2С' },
+      ]
+    },
+    {
+      id: 'pipes_round',
+      code: '03',
+      category: 'pipes',
+      title: 'Круглая стальная труба',
+      subtitle: 'Водогазопроводная и электросварная',
+      desc: 'Стальные трубы различных диаметров и толщины стенки для инженерных коммуникаций, металлических конструкций и гидросистем.',
+      tag: 'ГОСТ 3262-75 / 10704-91',
+      image: './images/pipes.png',
+      specs: [
+        { label: 'Диаметры наружные', value: 'от 15 мм до 219+ мм (1/2" — 8")' },
+        { label: 'Толщина стенки', value: 'от 2.0 мм до 8.0 мм' },
+        { label: 'Стандарты', value: 'ГОСТ, EN 10217, EN 10255' },
+        { label: 'Применение', value: 'ВГП, Несущие строительные стойки' },
       ]
     },
     {
@@ -62,6 +64,7 @@ export default function ProductCatalog() {
       subtitle: 'Г/К, Х/К, Оцинкованный и Рифлёный лист',
       desc: 'Гладкий, оцинкованный и рифленый листовой металл в листах и рулонах для производства, штамповки и фасадных элементов.',
       tag: 'ГОСТ 19903-2015 / 19904',
+      image: './images/sheets.png',
       specs: [
         { label: 'Толщина листовая', value: 'от 0.5 мм до 50.0 мм' },
         { label: 'Габариты раскроя', value: '1000х2000, 1250х2500, 1500х6000 мм' },
@@ -77,6 +80,7 @@ export default function ProductCatalog() {
       subtitle: 'Профиль 10Б1 — 30Б1 / К1 / К2',
       desc: 'Горячекатаный фасонный прокат Н-образного сечения для высоких несущих нагрузок, межэтажных перекрытий и мостовых ферм.',
       tag: 'ГОСТ 8239-89 / СТО АСЧМ',
+      image: './images/beams.png',
       specs: [
         { label: 'Профильные серии', value: 'Балка Б1, Б2, К1, К2' },
         { label: 'Высота профиля', value: 'от 100 мм до 300+ мм' },
@@ -92,6 +96,7 @@ export default function ProductCatalog() {
       subtitle: 'П-образный и равнополочный прокат',
       desc: 'Фасонные элементы для армирования стен, создания станин техники, прогонов и сопряжения балочных конструкций.',
       tag: 'ГОСТ 8240-97 / ГОСТ 8509',
+      image: './images/beams.png',
       specs: [
         { label: 'Швеллер серии', value: '№ 5U, 6.5U, 8U, 10U — 30U' },
         { label: 'Уголок равнополочный', value: '25х25, 40х40, 50х50 — 125х125' },
@@ -107,38 +112,35 @@ export default function ProductCatalog() {
 
   return (
     <>
-      <section className="section-editorial" id="catalog">
+      <section className="section-industrial" id="catalog" style={{ background: '#F8FAFC' }}>
         <div className="container">
-          <div className="section-header-center">
-            <div className="section-eyebrow">
-              <ShieldCheck size={14} color="#10B981" /> Номенклатура складского запаса
-            </div>
-            <h2>Каталог стального проката</h2>
+          <div className="section-header-industrial">
+            <span className="section-tag-industrial">Складской запас в наличии</span>
+            <h2>Каталог стального металлопроката</h2>
             <p>
-              450+ товарных позиций в постоянной готовности на базах в Кишинёве, Бельцах и Комрате. 
+              450+ товарных позиций в постоянной готовности на базах в Кишинёве, Оргееве и Сынжере. 
               Каждая партия отгружается с прямым заводским сертификатом качества.
             </p>
 
-            {/* Mode Switcher */}
-            <div style={{ display: 'inline-flex', background: 'var(--bg-card)', padding: '5px', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-subtle)', marginTop: '24px' }}>
+            {/* Display Mode Toggle */}
+            <div style={{ display: 'inline-flex', background: '#E2E8F0', padding: '4px', borderRadius: 'var(--radius-full)', marginTop: '20px' }}>
               <button 
                 onClick={() => setDisplayMode('cards')}
                 style={{
                   padding: '8px 20px',
                   borderRadius: 'var(--radius-full)',
                   border: 'none',
-                  background: displayMode === 'cards' ? 'var(--accent-emerald)' : 'transparent',
-                  color: displayMode === 'cards' ? '#000000' : 'var(--text-secondary)',
+                  background: displayMode === 'cards' ? 'var(--brand-green)' : 'transparent',
+                  color: displayMode === 'cards' ? '#FFFFFF' : '#475569',
                   fontSize: '13px',
                   fontWeight: '700',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.3s ease'
+                  gap: '8px'
                 }}
               >
-                <LayoutGrid size={15} /> Карточки
+                <LayoutGrid size={15} /> Фото-карточки проката
               </button>
               <button 
                 onClick={() => setDisplayMode('table')}
@@ -146,24 +148,23 @@ export default function ProductCatalog() {
                   padding: '8px 20px',
                   borderRadius: 'var(--radius-full)',
                   border: 'none',
-                  background: displayMode === 'table' ? 'var(--accent-emerald)' : 'transparent',
-                  color: displayMode === 'table' ? '#000000' : 'var(--text-secondary)',
+                  background: displayMode === 'table' ? 'var(--brand-green)' : 'transparent',
+                  color: displayMode === 'table' ? '#FFFFFF' : '#475569',
                   fontSize: '13px',
                   fontWeight: '700',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.3s ease'
+                  gap: '8px'
                 }}
               >
-                <Table size={15} /> Таблица specs
+                <Table size={15} /> Инженерная спецификация
               </button>
             </div>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="catalog-tabs-editorial">
+          {/* Category Tabs */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '40px' }}>
             {[
               { id: 'all', label: 'Все позиции (450+)' },
               { id: 'armatura', label: 'Арматура' },
@@ -173,125 +174,132 @@ export default function ProductCatalog() {
             ].map(tab => (
               <button 
                 key={tab.id}
-                className={`tab-btn-editorial ${activeTab === tab.id ? 'active' : ''}`}
                 onClick={() => setActiveTab(tab.id)}
+                style={{
+                  padding: '10px 22px',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid var(--border-light)',
+                  background: activeTab === tab.id ? 'var(--brand-green)' : '#FFFFFF',
+                  color: activeTab === tab.id ? '#FFFFFF' : 'var(--text-dark)',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  boxShadow: activeTab === tab.id ? '0 4px 12px rgba(6,78,59,0.2)' : 'none'
+                }}
               >
                 {tab.label}
               </button>
             ))}
           </div>
 
-          {/* CARDS DISPLAY WITH FRAMER MOTION */}
+          {/* DISPLAY MODE 1: CARDS WITH REAL STEEL PHOTOS */}
           {displayMode === 'cards' ? (
-            <motion.div className="catalog-grid-editorial" layout>
-              <AnimatePresence>
-                {filteredProducts.map((prod) => (
-                  <motion.div
-                    key={prod.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.94 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.94 }}
-                    transition={{ duration: 0.4 }}
-                    className="product-card-editorial"
-                  >
-                    <div className="product-header-editorial">
-                      <div>
-                        <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>
-                          POSITION #{prod.code}
-                        </span>
-                        <h3 className="product-title-editorial">{prod.title}</h3>
-                      </div>
-                      <span className="product-badge">{prod.tag}</span>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '28px' }}>
+              {filteredProducts.map((prod) => (
+                <div key={prod.id} className="product-card-photo">
+                  {/* REAL METAL PRODUCT PHOTO */}
+                  <div className="product-photo-container">
+                    <img src={prod.image} alt={prod.title} />
+                    <span className="product-photo-tag">{prod.tag}</span>
+                  </div>
+
+                  <div className="product-photo-body">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                      <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '800', color: 'var(--brand-green)', textTransform: 'uppercase' }}>
+                        ПОЗИЦИЯ #{prod.code}
+                      </span>
                     </div>
 
-                    <div className="product-body-editorial">
-                      <p style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-emerald)', marginBottom: '8px' }}>
-                        {prod.subtitle}
-                      </p>
-                      <p className="product-desc-editorial">{prod.desc}</p>
+                    <h3 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '4px' }}>
+                      {prod.title}
+                    </h3>
+                    <p style={{ fontSize: '13px', fontWeight: '700', color: 'var(--brand-green)', marginBottom: '10px' }}>
+                      {prod.subtitle}
+                    </p>
 
-                      <div className="product-specs-box">
-                        {prod.specs.map((sp, idx) => (
-                          <div key={idx} className="spec-row">
-                            <span className="spec-label">{sp.label}:</span>
-                            <span className="spec-value">{sp.value}</span>
-                          </div>
-                        ))}
-                      </div>
+                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.55', marginBottom: '16px' }}>
+                      {prod.desc}
+                    </p>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: 'auto' }}>
-                        <motion.button 
-                          onClick={() => setIsCalcOpen(true)}
-                          className="btn-editorial btn-outline-glass" 
-                          style={{ padding: '10px', fontSize: '12px' }}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Sparkles size={14} color="#10B981" /> Расчёт кг
-                        </motion.button>
-                        <motion.a 
-                          href="viber://chat?number=%2B37368471530" 
-                          className="btn-editorial btn-viber" 
-                          style={{ padding: '10px', fontSize: '12px' }}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <MessageSquare size={14} /> Viber
-                        </motion.a>
-                      </div>
+                    <div className="product-specs-table-mini">
+                      {prod.specs.map((sp, idx) => (
+                        <div key={idx} className="product-spec-row-mini">
+                          <span>{sp.label}:</span>
+                          <strong>{sp.value}</strong>
+                        </div>
+                      ))}
                     </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
+
+                    <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                      <button onClick={() => setIsCalcOpen(true)} className="btn-industrial btn-outline-steel" style={{ padding: '10px', fontSize: '12px' }}>
+                        <Calculator size={14} /> Расчёт массы
+                      </button>
+                      <a href="viber://chat?number=%2B37368471530" className="btn-industrial btn-viber-industrial" style={{ padding: '10px', fontSize: '12px' }}>
+                        <MessageSquare size={14} /> Viber
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           ) : (
-            /* TABLE DISPLAY */
-            <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
-                <thead>
-                  <tr style={{ background: 'var(--bg-surface-dark)', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '12px', textTransform: 'uppercase' }}>
-                    <th style={{ padding: '16px 24px' }}>Code</th>
-                    <th style={{ padding: '16px 24px' }}>Наименование</th>
-                    <th style={{ padding: '16px 24px' }}>Размеры / Сечения</th>
-                    <th style={{ padding: '16px 24px' }}>Стандарт</th>
-                    <th style={{ padding: '16px 24px', textAlign: 'right' }}>Действие</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredProducts.map((prod) => (
-                    <tr key={prod.id} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
-                      <td style={{ padding: '16px 24px', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', fontWeight: '700' }}>#{prod.code}</td>
-                      <td style={{ padding: '16px 24px' }}>
-                        <strong style={{ display: 'block', color: 'var(--text-primary)' }}>{prod.title}</strong>
-                        <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{prod.subtitle}</span>
-                      </td>
-                      <td style={{ padding: '16px 24px', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
-                        {prod.specs[1]?.value || '—'}
-                      </td>
-                      <td style={{ padding: '16px 24px' }}>
-                        <span className="product-badge">{prod.tag}</span>
-                      </td>
-                      <td style={{ padding: '16px 24px', textAlign: 'right' }}>
-                        <a href="tel:+37368471530" className="btn-editorial btn-emerald" style={{ padding: '6px 14px', fontSize: '12px' }}>
-                          <Phone size={13} /> Звонок
-                        </a>
-                      </td>
+            /* DISPLAY MODE 2: ENGINEERING DATA TABLE */
+            <div style={{ background: '#FFFFFF', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
+                  <thead>
+                    <tr style={{ background: '#0F172A', color: '#FFFFFF', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
+                      <th style={{ padding: '16px 20px' }}>№</th>
+                      <th style={{ padding: '16px 20px' }}>Наименование металлопроката</th>
+                      <th style={{ padding: '16px 20px' }}>Доступные сечения / Диаметры</th>
+                      <th style={{ padding: '16px 20px' }}>Стандарт ГОСТ / EN</th>
+                      <th style={{ padding: '16px 20px' }}>Марка стали</th>
+                      <th style={{ padding: '16px 20px', textAlign: 'right' }}>Связь</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {filteredProducts.map((prod, idx) => (
+                      <tr key={prod.id} style={{ borderBottom: '1px solid var(--border-subtle)', background: idx % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
+                        <td style={{ padding: '16px 20px', fontWeight: '800', color: 'var(--brand-green)', fontFamily: 'var(--font-mono)' }}>{prod.code}</td>
+                        <td style={{ padding: '16px 20px' }}>
+                          <strong style={{ display: 'block', color: 'var(--text-dark)', fontSize: '15px' }}>{prod.title}</strong>
+                          <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{prod.subtitle}</span>
+                        </td>
+                        <td style={{ padding: '16px 20px', fontWeight: '700', color: 'var(--text-dark)', fontFamily: 'var(--font-mono)' }}>
+                          {prod.specs[1]?.value || 'По запросу'}
+                        </td>
+                        <td style={{ padding: '16px 20px' }}>
+                          <span style={{ background: 'var(--brand-green-light)', color: 'var(--brand-green)', padding: '2px 8px', borderRadius: 'var(--radius-sm)', fontWeight: '700', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
+                            {prod.tag}
+                          </span>
+                        </td>
+                        <td style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '700', color: 'var(--text-dark)' }}>
+                          {prod.specs[0]?.value || 'Ст3сп / А500С'}
+                        </td>
+                        <td style={{ padding: '16px 20px', textAlign: 'right' }}>
+                          <div style={{ display: 'inline-flex', gap: '8px' }}>
+                            <a href="tel:+37368471530" className="btn-industrial btn-brand-green" style={{ padding: '6px 14px', fontSize: '12px' }}>
+                              <Phone size={13} /> Звонок
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
 
-          {/* Interactive Trigger Banner */}
-          <div style={{ marginTop: '56px', background: 'rgba(16, 185, 129, 0.06)', border: '1px solid var(--border-emerald)', borderRadius: 'var(--radius-md)', padding: '32px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          {/* Interactive Calculator Banner */}
+          <div style={{ marginTop: '56px', background: '#0F172A', color: '#FFFFFF', borderRadius: 'var(--radius-lg)', padding: '36px 44px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
             <div>
-              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '22px', color: '#FFFFFF', marginBottom: '6px' }}>Требуется нестандартная спецификация?</h4>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Воспользуйтесь интерактивным калькулятором веса и сформируйте запрос прямо дежурному инженеру.</p>
+              <h4 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '6px' }}>Требуется быстрый расчёт массы партий?</h4>
+              <p style={{ fontSize: '15px', color: '#94A3B8' }}>Рассчитайте масса-длину по справочным ГОСТам в пару кликов и запросите точную накладную.</p>
             </div>
-            <button onClick={() => setIsCalcOpen(true)} className="btn-editorial btn-emerald" style={{ padding: '14px 28px' }}>
-              <Sparkles size={16} /> Открыть Калькулятор Веса <ArrowRight size={16} />
+            <button onClick={() => setIsCalcOpen(true)} className="btn-industrial btn-amber" style={{ padding: '14px 28px' }}>
+              <Calculator size={18} /> Открыть Калькулятор Металла
             </button>
           </div>
         </div>

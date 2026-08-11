@@ -1,89 +1,48 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Award, ShieldCheck, Truck, Phone, MessageSquare, Compass, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Award, Truck, Phone, MessageSquare } from 'lucide-react';
 
 export default function CompanyOverview() {
   return (
-    <section className="section-editorial" id="company">
+    <section className="section-industrial" id="company" style={{ background: '#FFFFFF' }}>
       <div className="container">
-        <motion.div 
-          className="bases-grid-editorial"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center' }}>
           <div>
-            <div className="section-eyebrow">
-              <Compass size={14} color="#10B981" /> Наследие & Стандарты Metalica Zuev
-            </div>
-
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '38px', color: '#FFFFFF', marginBottom: '20px', lineHeight: '1.1' }}>
-              30 лет фундаментальной надёжности в Республике Молдова
+            <span className="section-tag-industrial">О компании Metalica Zuev</span>
+            <h2 style={{ fontSize: '38px', fontWeight: '800', margin: '14px 0 20px 0', color: 'var(--text-dark)' }}>
+              Надёжный поставщик металлопроката с 1995 года
             </h2>
 
-            <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '20px' }}>
-              <strong style={{ color: '#FFFFFF' }}>Metalica Zuev SRL</strong> — системообразующий поставщик чёрного металлопроката. С 1995 года мы снабжаем ключевые строительные и промышленные объекты страны металлом высших марок.
+            <p style={{ fontSize: '16px', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '20px' }}>
+              <strong style={{ color: 'var(--text-dark)' }}>Metalica Zuev SRL</strong> — крупнейший и опытнейший поставщик чёрного металлопроката в Республике Молдова. Более 30 лет мы обеспечиваем крупнейшие строительные и промышленные объекты надежным материалом прямо с заводов.
             </p>
 
-            <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '32px' }}>
-              Прямое сотрудничество с мировыми металлургическими комбинатами гарантирует честную толщину стенок, строгое соблюдение ГОСТ / EN и рекордный ассортимент из 450+ позиций.
+            <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '32px' }}>
+              Мы соединяем самый широкий складской ассортимент в стране (450+ позиций в наличии) с собственным парком козловых кранов, оборудованием для резки и оперативной доставкой.
             </p>
 
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-              <motion.a 
-                href="tel:+37368471530" 
-                className="btn-editorial btn-emerald"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <a href="tel:+37368471530" className="btn-industrial btn-brand-green">
                 <Phone size={16} /> Связаться с отделом продаж
-              </motion.a>
-              <motion.a 
-                href="viber://chat?number=%2B37368471530" 
-                className="btn-editorial btn-viber"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <MessageSquare size={16} /> Viber ↗
-              </motion.a>
+              </a>
+              <a href="viber://chat?number=%2B37368471530" className="btn-industrial btn-viber-industrial">
+                <MessageSquare size={16} /> Написать в Viber ↗
+              </a>
             </div>
           </div>
 
-          <div style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '36px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', color: '#FFFFFF' }}>
-              Принципы бескомпромиссного качества:
-            </h4>
-
-            {[
-              {
-                icon: ShieldCheck,
-                title: '100% Заводская Сертификация',
-                desc: 'Каждая партия проката отгружается с прямым паспортом и сертификатом соответствия EN 10025 / ГОСТ.'
-              },
-              {
-                icon: Award,
-                title: 'Рекордный Складской Резерв',
-                desc: '450+ позиций металлопроката находятся в постоянной готовности на базах в Кишинёве, Бельцах и Комрате.'
-              },
-              {
-                icon: Truck,
-                title: 'Собственная Тяжёлая Логистика',
-                desc: 'Парк спецтехники, крановая погрузка и выездная доставка в любую точку Молдовы точно в срок.'
-              }
-            ].map((item, idx) => (
-              <div key={idx} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '10px', borderRadius: 'var(--radius-sm)', color: '#10B981', flexShrink: 0 }}>
-                  <item.icon size={22} />
-                </div>
-                <div>
-                  <h5 style={{ fontSize: '16px', fontWeight: '800', color: '#FFFFFF', marginBottom: '4px' }}>{item.title}</h5>
-                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{item.desc}</p>
-                </div>
-              </div>
-            ))}
+          {/* REAL INDUSTRIAL STEEL CUTTING PHOTO */}
+          <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '2px solid var(--border-light)' }}>
+            <img 
+              src="./images/steel_cutting.jpg" 
+              alt="High Precision Metal Cutting" 
+              style={{ width: '100%', height: '440px', objectFit: 'cover', display: 'block' }}
+            />
+            <div style={{ position: 'absolute', bottom: 0, inset: 'auto 0 0 0', background: 'linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.9) 100%)', padding: '24px', color: '#FFFFFF' }}>
+              <h4 style={{ color: '#FFFFFF', fontSize: '18px', fontWeight: '800' }}>Металлообработка и Резка в Размер</h4>
+              <p style={{ fontSize: '13px', color: '#CBD5E1', marginTop: '4px' }}>Лентопильные и плазменные станки непосредственно на складских объектах</p>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
