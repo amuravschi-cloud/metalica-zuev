@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Phone, Clock, CheckCircle, Navigation, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Clock, CheckCircle, Navigation } from 'lucide-react';
 
 export default function BasesMap() {
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(0);
@@ -56,14 +56,12 @@ export default function BasesMap() {
   const currentBase = bases[selectedBaseIndex];
 
   return (
-    <section className="section-metal" id="bases">
+    <section className="section-v4" id="bases" style={{ background: '#FFFFFF' }}>
       <div className="container">
-        <div className="section-header-metal">
-          <div className="section-eyebrow-metal">
-            <ShieldCheck size={14} color="#34D399" /> Складская инфраструктура
-          </div>
-          <h2>Локации металлобаз в Молдове</h2>
-          <p>4 распределительных объекта обеспечивают оперативную отгрузку и минимальное плечо доставки.</p>
+        <div className="section-header-v4">
+          <span className="section-tag-v4">Складская сеть</span>
+          <h2>3 Металлобазы и Логистический хаб в Молдове</h2>
+          <p>Равномерное распределение складских запасов позволяет комплектовать заказы любой сложности и минимизировать плечо доставки.</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '0.85fr 1.15fr', gap: '32px' }}>
@@ -75,21 +73,21 @@ export default function BasesMap() {
                 style={{
                   padding: '20px',
                   borderRadius: 'var(--radius-md)',
-                  border: selectedBaseIndex === idx ? '1px solid var(--border-emerald)' : '1px solid var(--border-chrome)',
-                  background: selectedBaseIndex === idx ? 'var(--metal-titanium-bg)' : 'var(--bg-steel-card)',
+                  border: selectedBaseIndex === idx ? '2px solid var(--brand-green)' : '1px solid #CBD5E1',
+                  background: selectedBaseIndex === idx ? 'var(--brand-green-light)' : '#F8FAFC',
                   cursor: 'pointer',
                   marginBottom: '12px',
-                  boxShadow: selectedBaseIndex === idx ? 'var(--shadow-metal)' : 'none',
+                  boxShadow: selectedBaseIndex === idx ? '0 4px 14px rgba(6,78,59,0.15)' : 'none',
                   transition: 'all 0.2s ease'
                 }}
                 whileHover={{ x: 4 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF' }}>{b.city}</h4>
-                  <span style={{ fontSize: '12px', fontWeight: '800', color: 'var(--text-emerald)', fontFamily: 'var(--font-mono)' }}>0{idx + 1}</span>
+                  <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--text-dark)' }}>{b.city}</h4>
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: 'var(--brand-green)', fontFamily: 'var(--font-mono)' }}>0{idx + 1}</span>
                 </div>
-                <p style={{ fontWeight: '700', color: 'var(--text-primary)', margin: '4px 0 2px 0', fontSize: '13px' }}>{b.address}</p>
-                <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{b.type}</span>
+                <p style={{ fontWeight: '700', color: 'var(--text-dark)', margin: '4px 0 2px 0', fontSize: '13px' }}>{b.address}</p>
+                <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{b.type}</span>
               </motion.div>
             ))}
           </div>
@@ -101,40 +99,42 @@ export default function BasesMap() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="metal-plate-card"
+              className="metal-plate-heavy"
               style={{ padding: '36px', justifyContent: 'space-between' }}
             >
               <div>
-                <span className="steel-badge" style={{ marginBottom: '14px' }}>{currentBase.type}</span>
+                <span style={{ background: 'var(--brand-green-light)', color: 'var(--brand-green)', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: '12px', fontWeight: '700', display: 'inline-block', marginBottom: '14px', border: '1px solid var(--border-green)' }}>
+                  {currentBase.type}
+                </span>
 
-                <h3 style={{ fontSize: '26px', fontWeight: '800', color: '#FFFFFF', marginBottom: '12px' }}>{currentBase.title}</h3>
+                <h3 style={{ fontSize: '26px', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '12px' }}>{currentBase.title}</h3>
                 
-                <div style={{ display: 'flex', gap: '20px', margin: '16px 0', fontSize: '14px', color: 'var(--text-secondary)', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '20px', margin: '16px 0', fontSize: '14px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
-                    <MapPin size={16} color="#34D399" /> {currentBase.address}
+                    <MapPin size={16} color="var(--brand-green)" /> {currentBase.address}
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
-                    <Clock size={16} color="#34D399" /> {currentBase.hours}
+                    <Clock size={16} color="var(--brand-green)" /> {currentBase.hours}
                   </span>
                 </div>
 
-                <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>{currentBase.desc}</p>
+                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '24px' }}>{currentBase.desc}</p>
 
-                <h4 style={{ fontSize: '14px', fontWeight: '800', margin: '20px 0 12px 0', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Оснащение базы:</h4>
+                <h4 style={{ fontSize: '14px', fontWeight: '800', margin: '20px 0 12px 0', color: 'var(--text-dark)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Оснащение базы:</h4>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '32px' }}>
                   {currentBase.features.map((feat, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-primary)', fontWeight: '600' }}>
-                      <CheckCircle size={16} color="#34D399" /> {feat}
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-dark)', fontWeight: '700' }}>
+                      <CheckCircle size={16} color="#059669" /> {feat}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '14px', paddingTop: '20px', borderTop: '1px solid var(--border-chrome)' }}>
-                <a href={currentBase.mapUrl} target="_blank" rel="noreferrer" className="btn-metal btn-metal-emerald" style={{ flex: 1 }}>
+              <div style={{ display: 'flex', gap: '14px', paddingTop: '20px', borderTop: '2px solid #E2E8F0' }}>
+                <a href={currentBase.mapUrl} target="_blank" rel="noreferrer" className="btn-v4 btn-v4-emerald" style={{ flex: 1 }}>
                   <Navigation size={16} /> Google Maps (Метка MZ) ↗
                 </a>
-                <a href="tel:+37368471530" className="btn-metal btn-metal-dark">
+                <a href="tel:+37368471530" className="btn-v4 btn-v4-steel">
                   <Phone size={16} /> Проезд
                 </a>
               </div>

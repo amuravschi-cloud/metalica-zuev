@@ -16,7 +16,7 @@ export default function Capabilities() {
     },
     {
       icon: Wrench,
-      title: 'Козловые краны и погрузка',
+      title: 'Козловые краны 15т и погрузка',
       desc: 'Все металлобазы оборудованы heavy-duty козловыми и мостовыми кранами для безопасной и оперативной отгрузки длинномеров.'
     },
     {
@@ -27,13 +27,11 @@ export default function Capabilities() {
   ];
 
   return (
-    <section className="section-metal" id="capabilities" style={{ background: 'var(--bg-surface-dark)' }}>
+    <section className="section-v4" id="capabilities" style={{ background: '#F8FAFC' }}>
       <div className="container">
-        <div className="section-header-metal">
-          <div className="section-eyebrow-metal">
-            <ShieldCheck size={14} color="#34D399" /> Сервис & Логистика
-          </div>
-          <h2>Подготовка и отгрузка металла</h2>
+        <div className="section-header-v4">
+          <span className="section-tag-v4">Сервис & Логистика</span>
+          <h2>Не просто отгружаем. Готовим металл к работе.</h2>
           <p>Обеспечиваем полный цикл складской подготовки: от резки в размер до быстрой отгрузки козловыми кранами.</p>
         </div>
 
@@ -41,16 +39,16 @@ export default function Capabilities() {
           {capabilitiesList.map((cap, idx) => (
             <motion.div 
               key={idx} 
-              className="metal-plate-card"
+              className="metal-plate-heavy"
               style={{ padding: '32px 26px' }}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
             >
-              <div style={{ background: 'rgba(52, 211, 153, 0.12)', border: '1px solid var(--border-emerald)', width: '56px', height: '56px', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#34D399', marginBottom: '20px' }}>
+              <div style={{ width: '56px', height: '56px', background: 'var(--brand-green-light)', border: '1px solid var(--border-green)', color: 'var(--brand-green)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                 <cap.icon size={26} />
               </div>
-              <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '10px', color: '#FFFFFF' }}>{cap.title}</h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{cap.desc}</p>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '10px', color: 'var(--text-dark)' }}>{cap.title}</h3>
+              <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6' }}>{cap.desc}</p>
             </motion.div>
           ))}
         </div>
