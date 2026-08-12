@@ -149,8 +149,10 @@ export default function Hero() {
             'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРЯМОУГОЛЬНАЯ',
             'ЛИСТОВОЙ ПРОКАТ Г/К, Х/К, ОЦИНКОВАННЫЙ',
             'ДВУТАВРОВАЯ БАЛКА Б1 / Б2 / К1',
+            'ШВЕЛЛЕР № 5U - 30U И УГОЛОК ГОСТ',
+            'СЕТКА ВР-1 И ВЯЗАЛЬНАЯ ПРОВОЛОКА'
           ].map((item, idx) => (
-            <div key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '13px', fontWeight: '800', fontFamily: 'var(--font-mono)', color: '#CBD5E1', paddingRight: '36px' }}>
+            <div key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '13px', fontWeight: '800', fontFamily: 'var(--font-mono)', color: '#CBD5E1', paddingRight: '40px' }}>
               {item} <span style={{ color: '#34D399' }}>◆</span>
             </div>
           ))}

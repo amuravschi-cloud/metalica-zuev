@@ -474,6 +474,27 @@ h1, h2, h3, h4 {
   padding: 24px;
 }
 
+/* Ticker Continuous Infinite Marquee Motion */
+@keyframes tickerMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: tickerMarquee 25s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .hero-grid-v4 {
@@ -486,3 +507,4 @@ h1, h2, h3, h4 {
     flex: 0 0 300px;
   }
 }
+
