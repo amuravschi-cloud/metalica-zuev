@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageSquare, ShieldCheck, CheckCircle2, ArrowUpRight, Wrench, Truck } from 'lucide-react';
+import heroBgImg from '../assets/images/metal_base_yard.jpg';
 
 export default function Hero() {
   const containerVariants = {
@@ -21,7 +22,16 @@ export default function Hero() {
 
   return (
     <>
-      <section className="hero-industrial-v4" id="top">
+      <section 
+        className="hero-industrial-v4" 
+        id="top"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.86) 0%, rgba(11, 19, 31, 0.94) 100%), url(${heroBgImg})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container">
           <motion.div 
             className="hero-grid-v4"
@@ -41,7 +51,7 @@ export default function Hero() {
               </motion.h1>
 
               <motion.p variants={itemVariants} style={{ fontSize: '19px', lineHeight: '1.65', color: '#CBD5E1', marginBottom: '40px' }}>
-                Крупнейший складской запас в стране: 450+ позиций чёрного проката в наличии на 3-х действующих металлобазах и логистическом хабе. 
+                Крупнейший складской резерв в стране: 450+ позиций чёрного проката в наличии на 3-х действующих металлобазах и логистическом хабе. 
                 Прямые отгрузки, резка в точный размер и экспресс-доставка.
               </motion.p>
 
@@ -50,8 +60,8 @@ export default function Hero() {
                   href="tel:+37368471530" 
                   className="btn-v4 btn-v4-emerald"
                   style={{ padding: '16px 36px', fontSize: '16px' }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <Phone size={20} /> Позвонить отделу продаж
                 </motion.a>
@@ -60,8 +70,8 @@ export default function Hero() {
                   href="viber://chat?number=%2B37368471530" 
                   className="btn-v4 btn-v4-viber"
                   style={{ padding: '16px 28px', fontSize: '16px' }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <MessageSquare size={20} /> Viber Консультация <ArrowUpRight size={16} />
                 </motion.a>
@@ -130,13 +140,13 @@ export default function Hero() {
         <div className="ticker-track">
           {[
             'АРМАТУРА А500С / А400 (Ø 8-32мм)',
-            'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРМЯОУГОЛЬНАЯ',
+            'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРЯМОУГОЛЬНАЯ',
             'ЛИСТОВОЙ ПРОКАТ Г/К, Х/К, ОЦИНКОВАННЫЙ',
             'ДВУТАВРОВАЯ БАЛКА Б1 / Б2 / К1',
             'ШВЕЛЛЕР № 5U - 30U И УГОЛОК ГОСТ',
             'СЕТКА ВР-1 И ВЯЗАЛЬНАЯ ПРОВОЛОКА',
             'АРМАТУРА А500С / А400 (Ø 8-32мм)',
-            'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРМЯОУГОЛЬНАЯ',
+            'ТРУБА ПРОФИЛЬНАЯ КВАДРАТНАЯ И ПРЯМОУГОЛЬНАЯ',
             'ЛИСТОВОЙ ПРОКАТ Г/К, Х/К, ОЦИНКОВАННЫЙ',
             'ДВУТАВРОВАЯ БАЛКА Б1 / Б2 / К1',
           ].map((item, idx) => (

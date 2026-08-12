@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Award, Truck, Phone, MessageSquare, Compass } from 'lucide-react';
+import beamsDepotImg from '../assets/images/steel_beams_depot.jpg';
 
 export default function CompanyOverview() {
   return (
@@ -24,7 +25,7 @@ export default function CompanyOverview() {
             </p>
 
             <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '32px' }}>
-              Прямое сотрудничество с мировыми металлургическими комбинатами гарантирует честную толщину стенок, строгое соблюдение ГОСТ / EN 10025 и рекордный ассортимент из 450+ позиций.
+              Прямое сотрудничество с мировыми металлургическими комбинатам гарантирует честную толщину стенок, строгое соблюдение ГОСТ / EN 10025 и рекордный ассортимент из 450+ позиций.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -61,7 +62,7 @@ export default function CompanyOverview() {
             </div>
             <div style={{ height: '340px', overflow: 'hidden' }}>
               <img 
-                src="./images/steel_beams_depot.jpg" 
+                src={beamsDepotImg} 
                 alt="Steel Beams Depot" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />

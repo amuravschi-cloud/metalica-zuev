@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageSquare, Table, LayoutGrid, Calculator, ShieldCheck, Sparkles, ArrowRight } from 'lucide-react';
+import { Phone, MessageSquare, Table, LayoutGrid, Calculator, ShieldCheck, ArrowRight } from 'lucide-react';
 import SpecCalculator from './SpecCalculator';
+
+import rebarImg from '../assets/images/rebar.png';
+import pipesImg from '../assets/images/pipes.png';
+import sheetsImg from '../assets/images/sheets.png';
+import beamsImg from '../assets/images/beams.png';
 
 export default function ProductCatalog() {
   const [activeTab, setActiveTab] = useState('all');
@@ -17,7 +22,7 @@ export default function ProductCatalog() {
       subtitle: 'Гладкая и периодическая (Ø 8 – 32 мм)',
       desc: 'Высокопрочная стальная арматура для монолитного строительства, фундаментов, ЖБИ изделий и несущих каркасов.',
       tag: 'ГОСТ 34028 / А500С',
-      image: './images/rebar.png',
+      image: rebarImg,
       specs: [
         { label: 'Марка стали', value: 'А500С / А400 / 35ГС' },
         { label: 'Диаметры в наличии', value: '8, 10, 12, 14, 16, 18, 20-32 мм' },
@@ -33,7 +38,7 @@ export default function ProductCatalog() {
       subtitle: 'Квадратное и прямоугольное сечение',
       desc: 'Профильный прокат с точной геометрией сечения для навесов, заборов, ангаров, легких ферм и строительных лесов.',
       tag: 'ГОСТ 8639-82 / 8645',
-      image: './images/pipes.png',
+      image: pipesImg,
       specs: [
         { label: 'Сечения квадратные', value: '15х15, 20х20, 40х40, 60х60, 100х100' },
         { label: 'Прямоугольные', value: '40х20, 50х25, 60х40, 80х40, 100х50' },
@@ -49,7 +54,7 @@ export default function ProductCatalog() {
       subtitle: 'Водогазопроводная и электросварная',
       desc: 'Стальные трубы различных диаметров и толщины стенки для инженерных коммуникаций, металлических конструкций и гидросистем.',
       tag: 'ГОСТ 3262-75 / 10704',
-      image: './images/pipes.png',
+      image: pipesImg,
       specs: [
         { label: 'Диаметры наружные', value: 'от 15 мм до 219+ мм (1/2" — 8")' },
         { label: 'Толщина стенки', value: 'от 2.0 мм до 8.0 мм' },
@@ -65,7 +70,7 @@ export default function ProductCatalog() {
       subtitle: 'Г/К, Х/К, Оцинкованный и Рифлёный лист',
       desc: 'Гладкий, оцинкованный и рифленый листовой металл в листах и рулонах для производства, штамповки и фасадных элементов.',
       tag: 'ГОСТ 19903-2015 / 19904',
-      image: './images/sheets.png',
+      image: sheetsImg,
       specs: [
         { label: 'Толщина листовая', value: 'от 0.5 мм до 50.0 мм' },
         { label: 'Габариты раскроя', value: '1000х2000, 1250х2500, 1500х6000 мм' },
@@ -81,7 +86,7 @@ export default function ProductCatalog() {
       subtitle: 'Профиль 10Б1 — 30Б1 / К1 / К2',
       desc: 'Горячекатаный фасонный прокат Н-образного сечения для высоких несущих нагрузок, межэтажных перекрытий и мостовых ферм.',
       tag: 'ГОСТ 8239-89 / СТО АСЧМ',
-      image: './images/beams.png',
+      image: beamsImg,
       specs: [
         { label: 'Профильные серии', value: 'Балка Б1, Б2, К1, К2' },
         { label: 'Высота профиля', value: 'от 100 мм до 300+ мм' },
@@ -97,7 +102,7 @@ export default function ProductCatalog() {
       subtitle: 'П-образный и равнополочный прокат',
       desc: 'Фасонные элементы для армирования стен, создания станин техники, прогонов и сопряжения балочных конструкций.',
       tag: 'ГОСТ 8240-97 / ГОСТ 8509',
-      image: './images/beams.png',
+      image: beamsImg,
       specs: [
         { label: 'Швеллер серии', value: '№ 5U, 6.5U, 8U, 10U — 30U' },
         { label: 'Уголок равнополочный', value: '25х25, 40х40, 50х50 — 125х125' },
@@ -207,10 +212,11 @@ export default function ProductCatalog() {
                     initial={{ opacity: 0, scale: 0.94 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.94 }}
-                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.02, y: -6 }}
+                    transition={{ duration: 0.3 }}
                     className="metal-plate-heavy"
                   >
-                    {/* REAL METAL PRODUCT PHOTO */}
+                    {/* REAL BUNDLED METAL PRODUCT PHOTO */}
                     <div className="metal-photo-frame-v4">
                       <img src={prod.image} alt={prod.title} />
                       <span className="metal-photo-tag-v4">{prod.tag}</span>
