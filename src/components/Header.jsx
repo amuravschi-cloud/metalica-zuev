@@ -12,38 +12,38 @@ export default function Header() {
     <>
       {/* Top Announcement Strip */}
       <div className="top-announcement-v4">
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'nowrap', gap: '16px', overflowX: 'auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', whiteSpace: 'nowrap', flexShrink: 0 }}>
             <span className="status-badge-v4">
               <span className="status-dot-v4"></span>
               {isOpenNow ? 'Металлобазы открыты · Прямая отгрузка кранами 15т' : 'Приём заявок 24/7 · Погрузка Пн–Пт 08:00–17:00'}
             </span>
 
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#CBD5E1' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#CBD5E1', fontSize: '12px' }}>
               <Clock size={14} color="#34D399" /> Режим: Пн–Пт 08:00–17:00
             </span>
 
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#CBD5E1' }}>
-              <MapPin size={14} color="#34D399" /> 3 Базы + Складской Хаб в Молдове
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#CBD5E1', fontSize: '12px' }}>
+              <MapPin size={14} color="#34D399" /> 3 Базы + Складской Хаб в РМ
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', whiteSpace: 'nowrap', flexShrink: 0 }}>
             <a 
               href="viber://chat?number=%2B37368471530" 
-              style={{ color: '#C4B5FD', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: '700', fontFamily: 'var(--font-mono)' }}
+              style={{ color: '#C4B5FD', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: '700', fontFamily: 'var(--font-mono)' }}
             >
-              <MessageSquare size={14} /> Viber: +373 68 47-15-30
+              <MessageSquare size={13} /> Viber: +373 68 47-15-30
             </a>
 
             {/* Complete 5-Version Switcher */}
-            <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.12)', padding: '3px 8px', borderRadius: 'var(--radius-full)', gap: '4px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}>
+            <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.12)', padding: '2px 6px', borderRadius: 'var(--radius-full)', gap: '3px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}>
               <span style={{ color: '#94A3B8', padding: '2px 4px', fontWeight: '700' }}>Версии:</span>
-              <a href="../v1/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v1</a>
-              <a href="../v2/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v2</a>
-              <a href="../v3/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v3</a>
-              <a href="../v4/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v4</a>
-              <a href="../" style={{ color: '#FFFFFF', background: 'var(--brand-green)', fontWeight: '700', textDecoration: 'none', padding: '2px 8px', borderRadius: 'var(--radius-full)' }}>v5 Active</a>
+              <a href="../v1/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 5px', borderRadius: '4px' }}>v1</a>
+              <a href="../v2/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 5px', borderRadius: '4px' }}>v2</a>
+              <a href="../v3/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 5px', borderRadius: '4px' }}>v3</a>
+              <a href="../v4/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 5px', borderRadius: '4px' }}>v4</a>
+              <a href="../" style={{ color: '#FFFFFF', background: 'var(--brand-green)', fontWeight: '700', textDecoration: 'none', padding: '2px 7px', borderRadius: 'var(--radius-full)' }}>v5 Active</a>
             </div>
           </div>
         </div>
@@ -73,25 +73,25 @@ export default function Header() {
             <a href="#contact">Контакты</a>
           </nav>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
             <motion.a 
               href="tel:+37368471530" 
               className="btn-v4 btn-v4-emerald" 
-              style={{ padding: '11px 20px', fontSize: '14px' }}
+              style={{ padding: '10px 18px', fontSize: '13px', whiteSpace: 'nowrap' }}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
             >
-              <Phone size={16} /> +373 68 47-15-30
+              <Phone size={15} /> +373 68 47-15-30
             </motion.a>
 
             <motion.a 
               href="viber://chat?number=%2B37368471530" 
               className="btn-v4 btn-v4-viber" 
-              style={{ padding: '11px 18px', fontSize: '14px' }}
+              style={{ padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap' }}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
             >
-              <MessageSquare size={16} /> Viber ↗
+              <MessageSquare size={15} /> Viber ↗
             </motion.a>
           </div>
         </div>

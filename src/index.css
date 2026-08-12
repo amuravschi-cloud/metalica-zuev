@@ -119,14 +119,17 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: center;
   height: 84px;
+  gap: 16px;
 }
 
 .brand-logo-v4 {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none;
   color: var(--text-dark);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .brand-icon-v4 {
@@ -142,15 +145,17 @@ h1, h2, h3, h4 {
   font-size: 20px;
   box-shadow: var(--shadow-bevel-btn);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
 }
 
 .brand-text-v4 b {
   display: block;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.1;
   color: var(--brand-green);
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .brand-text-v4 small {
@@ -159,12 +164,14 @@ h1, h2, h3, h4 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .nav-v4 {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
+  white-space: nowrap;
 }
 
 .nav-v4 a {
@@ -173,6 +180,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   font-size: 14px;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-v4 a:hover {
@@ -190,6 +198,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-full);
   font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .status-dot-v4 {
@@ -205,11 +214,11 @@ h1, h2, h3, h4 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 13px 26px;
+  gap: 8px;
+  padding: 11px 20px;
   border-radius: var(--radius-sm);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13.5px;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.2s ease;
@@ -217,6 +226,8 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-bevel-btn);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-v4-emerald {
