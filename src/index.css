@@ -1,8 +1,8 @@
 :root {
-  /* High-End Authoritative Industrial Steel Palette (v6) */
-  --bg-main: #F8FAFC;
+  /* High-End Authoritative Industrial Steel Palette (v7) */
+  --bg-main: #E2E8F0;
   --bg-surface: #FFFFFF;
-  --bg-silver-slate: #E2E8F0;
+  --bg-silver-slate: #CBD5E1;
   --bg-steel-dark: #0F172A;
   --bg-steel-navy: #0B131F;
 
@@ -25,8 +25,8 @@
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'Space Grotesk', monospace;
 
-  --shadow-plate: 0 12px 36px rgba(15, 23, 42, 0.08), inset 0 1px 0 #FFFFFF;
-  --shadow-bevel-btn: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -2px 0 rgba(0, 0, 0, 0.25), 0 4px 14px rgba(15, 23, 42, 0.12);
+  --shadow-plate: 0 12px 36px rgba(15, 23, 42, 0.1), inset 0 1px 0 #FFFFFF;
+  --shadow-bevel-btn: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.25), 0 4px 14px rgba(15, 23, 42, 0.15);
 
   --radius-xs: 6px;
   --radius-sm: 10px;
@@ -49,17 +49,24 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Brushed Steel Industrial Background Texture */
 body {
   overflow-x: hidden;
-  background-color: var(--bg-main);
+  background-color: #E2E8F0;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.25) 0px, rgba(255,255,255,0.25) 2px, transparent 2px, transparent 8px),
+    linear-gradient(to right, rgba(148, 163, 184, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 9px;
+  height: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #E2E8F0;
+  background: #CBD5E1;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #94A3B8, #475569);
@@ -267,7 +274,7 @@ h1, h2, h3, h4 {
 .section-header-v4 {
   text-align: center;
   max-width: 820px;
-  margin: 0 auto 52px auto;
+  margin: 0 auto 40px auto;
 }
 
 .section-tag-v4 {
@@ -316,7 +323,7 @@ h1, h2, h3, h4 {
 
 .metal-plate-heavy:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12), inset 0 1px 0 #FFFFFF;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14), inset 0 1px 0 #FFFFFF;
   border-color: var(--brand-green);
 }
 
@@ -410,6 +417,22 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
+/* Horizontal Motion Scroll Track */
+.horizontal-scroll-container {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 12px 4px 28px 4px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll-container > * {
+  flex: 0 0 360px;
+  scroll-snap-align: start;
+}
+
 /* Industrial Hero */
 .hero-industrial-v4 {
   position: relative;
@@ -458,5 +481,8 @@ h1, h2, h3, h4 {
   }
   .nav-v4 {
     display: none;
+  }
+  .horizontal-scroll-container > * {
+    flex: 0 0 300px;
   }
 }

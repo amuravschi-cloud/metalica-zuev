@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageSquare, Table, LayoutGrid, Calculator, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Phone, MessageSquare, Table, LayoutGrid, Calculator, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import SpecCalculator from './SpecCalculator';
 
 import rebarImg from '../assets/images/rebar.png';
@@ -12,6 +12,7 @@ export default function ProductCatalog() {
   const [activeTab, setActiveTab] = useState('all');
   const [displayMode, setDisplayMode] = useState('cards'); // 'cards' or 'table'
   const [isCalcOpen, setIsCalcOpen] = useState(false);
+  const trackRef = useRef(null);
 
   const products = [
     {
@@ -116,6 +117,18 @@ export default function ProductCatalog() {
     ? products 
     : products.filter(p => p.category === activeTab);
 
+  const scrollLeft = () => {
+    if (trackRef.current) {
+      trackRef.current.scrollBy({ left: -380, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (trackRef.current) {
+      trackRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <section className="section-v4" id="catalog">
@@ -128,51 +141,79 @@ export default function ProductCatalog() {
               Каждая партия отгружается с прямым заводским сертификатом качества.
             </p>
 
-            {/* Display Mode Toggle */}
-            <div style={{ display: 'inline-flex', background: '#E2E8F0', padding: '4px', borderRadius: 'var(--radius-full)', border: '1px solid #CBD5E1', marginTop: '24px' }}>
-              <button 
-                onClick={() => setDisplayMode('cards')}
-                style={{
-                  padding: '8px 20px',
-                  borderRadius: 'var(--radius-full)',
-                  border: 'none',
-                  background: displayMode === 'cards' ? 'var(--brand-green)' : 'transparent',
-                  color: displayMode === 'cards' ? '#FFFFFF' : '#475569',
-                  fontSize: '13px',
-                  fontWeight: '700',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <LayoutGrid size={15} /> Металло-карточки
-              </button>
-              <button 
-                onClick={() => setDisplayMode('table')}
-                style={{
-                  padding: '8px 20px',
-                  borderRadius: 'var(--radius-full)',
-                  border: 'none',
-                  background: displayMode === 'table' ? 'var(--brand-green)' : 'transparent',
-                  color: displayMode === 'table' ? '#FFFFFF' : '#475569',
-                  fontSize: '13px',
-                  fontWeight: '700',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <Table size={15} /> Инженерная спецификация
-              </button>
+            {/* Display Mode & Navigation Header Bar */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginTop: '24px' }}>
+              <div style={{ display: 'inline-flex', background: '#CBD5E1', padding: '4px', borderRadius: 'var(--radius-full)', border: '1px solid #94A3B8' }}>
+                <button 
+                  onClick={() => setDisplayMode('cards')}
+                  style={{
+                    padding: '8px 20px',
+                    borderRadius: 'var(--radius-full)',
+                    border: 'none',
+                    background: displayMode === 'cards' ? 'var(--brand-green)' : 'transparent',
+                    color: displayMode === 'cards' ? '#FFFFFF' : '#475569',
+                    fontSize: '13px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  <LayoutGrid size={15} /> Горизонтальный Моушн-Трек
+                </button>
+                <button 
+                  onClick={() => setDisplayMode('table')}
+                  style={{
+                    padding: '8px 20px',
+                    borderRadius: 'var(--radius-full)',
+                    border: 'none',
+                    background: displayMode === 'table' ? 'var(--brand-green)' : 'transparent',
+                    color: displayMode === 'table' ? '#FFFFFF' : '#475569',
+                    fontSize: '13px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  <Table size={15} /> Инженерная спецификация
+                </button>
+              </div>
+
+              {/* Horizontal Scroll Steel Arrow Buttons */}
+              {displayMode === 'cards' && (
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <motion.button 
+                    onClick={scrollLeft}
+                    className="btn-v4 btn-v4-steel"
+                    style={{ padding: '10px 14px', borderRadius: 'var(--radius-full)' }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.92 }}
+                    aria-label="Scroll left"
+                  >
+                    <ChevronLeft size={20} />
+                  </motion.button>
+                  <motion.button 
+                    onClick={scrollRight}
+                    className="btn-v4 btn-v4-emerald"
+                    style={{ padding: '10px 14px', borderRadius: 'var(--radius-full)' }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.92 }}
+                    aria-label="Scroll right"
+                  >
+                    <ChevronRight size={20} />
+                  </motion.button>
+                </div>
+              )}
             </div>
           </div>
 
           {/* Category Filter Tabs */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '48px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '36px' }}>
             {[
               { id: 'all', label: 'Все позиции (450+)' },
               { id: 'armatura', label: 'Арматура' },
@@ -201,79 +242,86 @@ export default function ProductCatalog() {
             ))}
           </div>
 
-          {/* DISPLAY MODE 1: HEAVY 3D RIVETED METAL CARDS WITH REAL PHOTOS */}
+          {/* DISPLAY MODE 1: HORIZONTAL MOTION CAROUSEL TRACK */}
           {displayMode === 'cards' ? (
-            <motion.div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '30px' }} layout>
-              <AnimatePresence>
-                {filteredProducts.map((prod) => (
-                  <motion.div
-                    key={prod.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.94 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.94 }}
-                    whileHover={{ scale: 1.02, y: -6 }}
-                    transition={{ duration: 0.3 }}
-                    className="metal-plate-heavy"
-                  >
-                    {/* REAL BUNDLED METAL PRODUCT PHOTO */}
-                    <div className="metal-photo-frame-v4">
-                      <img src={prod.image} alt={prod.title} />
-                      <span className="metal-photo-tag-v4">{prod.tag}</span>
-                    </div>
-
-                    <div className="metal-plate-body-v4">
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                        <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '800', color: 'var(--brand-green)', textTransform: 'uppercase' }}>
-                          ПОЗИЦИЯ #{prod.code}
-                        </span>
+            <div>
+              <div className="horizontal-scroll-container" ref={trackRef}>
+                <AnimatePresence mode="popLayout">
+                  {filteredProducts.map((prod) => (
+                    <motion.div
+                      key={prod.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.94 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.94 }}
+                      whileHover={{ y: -6 }}
+                      transition={{ duration: 0.3 }}
+                      className="metal-plate-heavy"
+                    >
+                      {/* BUNDLED METAL PRODUCT PHOTO */}
+                      <div className="metal-photo-frame-v4">
+                        <img src={prod.image} alt={prod.title} />
+                        <span className="metal-photo-tag-v4">{prod.tag}</span>
                       </div>
 
-                      <h3 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '4px' }}>
-                        {prod.title}
-                      </h3>
-                      <p style={{ fontSize: '13px', fontWeight: '700', color: 'var(--brand-green)', marginBottom: '12px' }}>
-                        {prod.subtitle}
-                      </p>
+                      <div className="metal-plate-body-v4">
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                          <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '800', color: 'var(--brand-green)', textTransform: 'uppercase' }}>
+                            ПОЗИЦИЯ #{prod.code}
+                          </span>
+                        </div>
 
-                      <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.55', marginBottom: '16px' }}>
-                        {prod.desc}
-                      </p>
+                        <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '4px' }}>
+                          {prod.title}
+                        </h3>
+                        <p style={{ fontSize: '13px', fontWeight: '700', color: 'var(--brand-green)', marginBottom: '12px' }}>
+                          {prod.subtitle}
+                        </p>
 
-                      <div className="steel-spec-table-v4">
-                        {prod.specs.map((sp, idx) => (
-                          <div key={idx} className="steel-spec-row-v4">
-                            <span>{sp.label}:</span>
-                            <strong>{sp.value}</strong>
-                          </div>
-                        ))}
+                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.55', marginBottom: '16px' }}>
+                          {prod.desc}
+                        </p>
+
+                        <div className="steel-spec-table-v4">
+                          {prod.specs.map((sp, idx) => (
+                            <div key={idx} className="steel-spec-row-v4">
+                              <span>{sp.label}:</span>
+                              <strong>{sp.value}</strong>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '2px solid #E2E8F0', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                          <motion.button 
+                            onClick={() => setIsCalcOpen(true)}
+                            className="btn-v4 btn-v4-steel" 
+                            style={{ padding: '10px', fontSize: '12px' }}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <Calculator size={14} /> Расчёт массы
+                          </motion.button>
+                          <motion.a 
+                            href="viber://chat?number=%2B37368471530" 
+                            className="btn-v4 btn-v4-viber" 
+                            style={{ padding: '10px', fontSize: '12px' }}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <MessageSquare size={14} /> Viber
+                          </motion.a>
+                        </div>
                       </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
 
-                      <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '2px solid #E2E8F0', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                        <motion.button 
-                          onClick={() => setIsCalcOpen(true)}
-                          className="btn-v4 btn-v4-steel" 
-                          style={{ padding: '10px', fontSize: '12px' }}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Calculator size={14} /> Расчёт массы
-                        </motion.button>
-                        <motion.a 
-                          href="viber://chat?number=%2B37368471530" 
-                          className="btn-v4 btn-v4-viber" 
-                          style={{ padding: '10px', fontSize: '12px' }}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <MessageSquare size={14} /> Viber
-                        </motion.a>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
+              {/* Scroll Track Help Hint */}
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '12px', fontSize: '13px', color: 'var(--text-muted)', fontWeight: '600' }}>
+                <ChevronLeft size={16} /> Прокручивайте каталог по горизонтали <ChevronRight size={16} />
+              </div>
+            </div>
           ) : (
             /* DISPLAY MODE 2: ENGINEERING DATA TABLE */
             <div style={{ background: '#FFFFFF', border: '2px solid #CBD5E1', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-plate)' }}>
