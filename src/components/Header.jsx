@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageSquare, Clock, MapPin, ShieldCheck, Truck } from 'lucide-react';
+import { Phone, MessageSquare, Clock, MapPin } from 'lucide-react';
 
 export default function Header() {
   const now = new Date();
@@ -36,11 +36,14 @@ export default function Header() {
               <MessageSquare size={14} /> Viber: +373 68 47-15-30
             </a>
 
-            {/* Version switcher */}
-            <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: 'var(--radius-full)', gap: '4px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}>
-              <a href="../v1/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px' }}>v1</a>
-              <a href="../v2/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px' }}>v2</a>
-              <a href="../" style={{ color: '#FFFFFF', background: 'var(--brand-green)', fontWeight: '700', textDecoration: 'none', padding: '2px 6px', borderRadius: 'var(--radius-full)' }}>v4 High-End Depot</a>
+            {/* Complete 5-Version Switcher */}
+            <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.12)', padding: '3px 8px', borderRadius: 'var(--radius-full)', gap: '4px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}>
+              <span style={{ color: '#94A3B8', padding: '2px 4px', fontWeight: '700' }}>Версии:</span>
+              <a href="../v1/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v1</a>
+              <a href="../v2/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v2</a>
+              <a href="../v3/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v3</a>
+              <a href="../v4/" style={{ color: '#CBD5E1', textDecoration: 'none', padding: '2px 6px', borderRadius: '4px' }}>v4</a>
+              <a href="../" style={{ color: '#FFFFFF', background: 'var(--brand-green)', fontWeight: '700', textDecoration: 'none', padding: '2px 8px', borderRadius: 'var(--radius-full)' }}>v5 Active</a>
             </div>
           </div>
         </div>

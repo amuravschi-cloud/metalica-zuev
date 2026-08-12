@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import MetalCanvasBackdrop from './components/MetalCanvasBackdrop';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductCatalog from './components/ProductCatalog';
@@ -20,11 +19,8 @@ export default function App() {
   });
 
   return (
-    <div className="app-wrapper" style={{ position: 'relative' }}>
-      {/* Interactive Motion Graphics Canvas Backdrop */}
-      <MetalCanvasBackdrop />
-
-      {/* Top Metallic Motion Progress Indicator */}
+    <div className="app-wrapper">
+      {/* Top Scroll Indicator */}
       <motion.div 
         style={{
           scaleX,
@@ -32,16 +28,16 @@ export default function App() {
           top: 0,
           left: 0,
           right: 0,
-          height: '3px',
-          background: 'linear-gradient(90deg, #059669, #34D399, #F59E0B)',
+          height: '4px',
+          background: 'linear-gradient(90deg, #064E3B 0%, #047857 50%, #D97706 100%)',
           transformOrigin: '0%',
           zIndex: 1000,
-          boxShadow: '0 0 10px #34D399'
+          boxShadow: '0 0 12px rgba(6, 78, 59, 0.4)'
         }}
       />
 
       <Header />
-      <main style={{ position: 'relative', zIndex: 1 }}>
+      <main>
         <Hero />
         <ProductCatalog />
         <CompanyOverview />

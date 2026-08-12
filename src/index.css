@@ -1,6 +1,6 @@
 :root {
-  /* High-End Authoritative Industrial Metal Trading Palette (v4) */
-  --bg-main: #F1F5F9;
+  /* High-End Authoritative Industrial Steel Palette (v6) */
+  --bg-main: #F8FAFC;
   --bg-surface: #FFFFFF;
   --bg-silver-slate: #E2E8F0;
   --bg-steel-dark: #0F172A;
@@ -25,8 +25,8 @@
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'Space Grotesk', monospace;
 
-  --shadow-plate: 0 12px 36px rgba(15, 23, 42, 0.09), inset 0 1px 0 #FFFFFF;
-  --shadow-bevel-btn: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -2px 0 rgba(0, 0, 0, 0.25), 0 4px 14px rgba(15, 23, 42, 0.15);
+  --shadow-plate: 0 12px 36px rgba(15, 23, 42, 0.08), inset 0 1px 0 #FFFFFF;
+  --shadow-bevel-btn: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -2px 0 rgba(0, 0, 0, 0.25), 0 4px 14px rgba(15, 23, 42, 0.12);
 
   --radius-xs: 6px;
   --radius-sm: 10px;
@@ -52,10 +52,6 @@ html {
 body {
   overflow-x: hidden;
   background-color: var(--bg-main);
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
-  background-size: 40px 40px;
 }
 
 /* Custom Scrollbar */
@@ -98,7 +94,7 @@ h1, h2, h3, h4 {
   color: #CBD5E1;
   padding: 10px 0;
   font-size: 12px;
-  border-bottom: 2px solid var(--brand-green);
+  border-bottom: 3px solid var(--brand-green);
 }
 
 .header-v4 {
@@ -301,7 +297,7 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-/* Heavy 3D Metal Plate Container with Rivets */
+/* Heavy Steel Container with Rivets */
 .metal-plate-heavy {
   background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   border: 2px solid #CBD5E1;
@@ -312,7 +308,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-plate);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -320,7 +316,7 @@ h1, h2, h3, h4 {
 
 .metal-plate-heavy:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14), inset 0 1px 0 #FFFFFF;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12), inset 0 1px 0 #FFFFFF;
   border-color: var(--brand-green);
 }
 
@@ -329,7 +325,7 @@ h1, h2, h3, h4 {
   padding: 20px 24px;
   background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
   color: #FFFFFF;
-  border-bottom: 2px solid var(--brand-green);
+  border-bottom: 3px solid var(--brand-green);
 }
 
 .metal-plate-head-riveted::before, .metal-plate-head-riveted::after {
@@ -362,7 +358,7 @@ h1, h2, h3, h4 {
 }
 
 .metal-plate-heavy:hover .metal-photo-frame-v4 img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .metal-photo-tag-v4 {
@@ -414,13 +410,10 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
-/* Industrial Hero with Real Photo Background */
+/* Industrial Hero */
 .hero-industrial-v4 {
   position: relative;
   padding: 100px 0 80px 0;
-  background: 
-    linear-gradient(180deg, rgba(15, 23, 42, 0.88) 0%, rgba(11, 19, 31, 0.94) 100%),
-    url('./images/metal_base_yard.jpg') center/cover no-repeat;
   color: #FFFFFF;
   border-bottom: 4px solid var(--brand-green);
 }
